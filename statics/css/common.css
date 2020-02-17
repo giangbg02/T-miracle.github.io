@@ -15,7 +15,7 @@ body {
   padding: 0;
   font-size: 14px;
   color: white;
-  font-family: print, Consolas, sans-serif;
+  font-family: Consolas, sans-serif;
   background-color: #222738; }
   body .bg {
     position: fixed;
