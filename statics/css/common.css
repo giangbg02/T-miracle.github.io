@@ -1,3 +1,6 @@
+@font-face {
+  font-family: print;
+  src: url("../fonts/segoe print.ttf"); }
 * {
   box-sizing: border-box; }
 
@@ -30,15 +33,15 @@ body {
     width: 100%;
     height: 30px;
     color: white;
-    box-shadow: 0 0 2px white;
+    box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     background-color: #222738; }
     body header .website-name {
       margin-left: 30px;
       font-size: large;
-      font-family: "Segoe Print" ,sans-serif; }
+      font-family: print ,sans-serif; }
     body header nav {
       margin-right: 30px; }
       body header nav ul {
@@ -65,7 +68,8 @@ body {
         float: left;
         padding: 15px; }
         body .pjax-container .content-box .col-1 span, body .pjax-container .content-box .col-2 span, body .pjax-container .content-box .col-3 span {
-          font-size: no; }
+          font-size: 18px;
+          font-weight: bold; }
       body .pjax-container .content-box .col-1 {
         width: 40%;
         height: 400px;
