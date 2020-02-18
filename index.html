@@ -10,9 +10,10 @@
         <link rel="stylesheet" href="statics/APlayer/APlayer.min.css">
         <link rel="stylesheet" href="statics/layer/theme/default/layer.css">
         <link rel="stylesheet" href="statics/prism/prism.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
     </head>
     <body>
-        <div class="bg"></div>
+        <canvas id="stars"></canvas>
         <header>
             <div class="website-name">MaokDown</div>
             <nav>
@@ -26,23 +27,70 @@
             </nav>
         </header>
         <div class="pjax-container">
-            <div class="content-box">
-                <div class="col-1">
-                    <span>最新博客</span>
-                    <p>页面编写ing~</p>
-                </div>
-                <div class="col-2">
-                    <span>待定</span>
-                </div>
-                <div class="col-3">
-                    <span>头像</span>
-                </div>
+            <main>
+                <span>博客文章</span>
+                <ul>
+                    <li><a href="#">获取网易云的歌曲、封面以及歌词</a></li>
+                    <li><a href="#">APlayer网站音乐播放器</a></li>
+                    <li><a href="#">Pjax：实现网站全局音乐播放</a></li>
+                    <li><a href="#">如何用js实现一个粘性定位</a></li>
+                    <li><a href="#">怎么给静态博客添加统计访问点击量</a></li>
+                    <li><a href="#">iconfont字体图标的引用</a></li>
+                    <li><a href="#">IoC概念</a></li>
+                    <li><a href="#">如何快速搭建一个Spring项目</a></li>
+                </ul>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
             </div>
-
+            <aside>
+                <div class="head-portrait">
+                    <div class="logo">
+                        <img src="statics/images/icon/Tmiracle.png" alt>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/T-miracle" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-Github"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://tmiracle.coding.net/user" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-coding"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.jianshu.com/u/3ad48efef1e7" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-jianshu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://space.bilibili.com/14816067" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-bilibili"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
         </div>
         <div id="APlayer"></div>
 
         <script src="statics/JQuery/jquery.js"></script>
+        <script src="statics/js/stars.js"></script>
         <script src="statics/Pjax/jquery.pjax.js"></script>
         <script src="statics/js/common.js"></script>
         <script src="statics/layer/layer.js"></script>
