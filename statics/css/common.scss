@@ -51,7 +51,9 @@ body {
         justify-content: space-between;
         align-items: center;
         background-color: rgb(34, 39, 56);
+        z-index: 1000;
 
+        //logo
         .website-name {
             margin-left: 5px;
             font-size: large;
@@ -89,10 +91,12 @@ body {
             }
         }
 
+        //导航链接
         nav {
             margin-right: 5px;
 
             ul {
+                padding: 0;
                 list-style: none;
                 display: inline;
 
@@ -120,8 +124,8 @@ body {
     .pjax-container {
         height: auto;
         margin: 30px auto 80px;
-        padding-top: 15px;
 
+        //浮动清除
         &:after {
             content: '';
             display: block;
@@ -133,51 +137,61 @@ body {
             padding: 15px;
         }
 
+        //主内容区
         main {
             position: relative;
             right: 0;
+            display: flex;
+            flex-wrap: wrap;
             width: 100%;
-            height: 400px;
+            height: auto;
             //background-color: #1E9FFF;
             transition: 1s ease-in-out;
 
-            span {
-                padding: 5px;
-                border-radius: 6px;
-                font-size: 1.6em;
-                color: crimson;
-                letter-spacing: 3px;
-                font-weight: normal;
-            }
+            //文章列表部分
+            section:first-child {
+                width: 100%;
+                padding: 0 30px;
+                //background-color: rgba(228, 228, 228, 0.5);
 
-            ul {
-                list-style: circle;
-                padding-left: 10px;
+                span {
+                    padding: 5px;
+                    border-radius: 6px;
+                    font-size: 1.6em;
+                    color: crimson;
+                    letter-spacing: 3px;
+                    font-weight: normal;
+                }
 
-                li {
-                    margin-top: 20px;
+                ul {
+                    list-style: circle;
+                    padding-left: 10px;
 
-                    a {
-                        font-size: 1.1em;
-                        color: greenyellow;
-                        text-decoration: none;
+                    li {
+                        margin-top: 20px;
 
-                        &:hover {
-                            border-bottom: 0;
-                            padding-bottom: 3px;
-                            color: darkorange;
-                            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
-                            background-size: 20px auto;
-                            text-decoration: none !important;
-                            animation: waveMove 1s infinite linear;
-                        }
+                        a {
+                            font-size: 1.1em;
+                            color: greenyellow;
+                            text-decoration: none;
 
-                        @keyframes waveMove {
-                            0% {
-                                background-position: 0 100%;
+                            &:hover {
+                                border-bottom: 0;
+                                padding-bottom: 3px;
+                                color: darkorange;
+                                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
+                                background-size: 20px auto;
+                                text-decoration: none !important;
+                                animation: waveMove 1s infinite linear;
                             }
-                            100% {
-                                background-position: -20px 100%;
+
+                            @keyframes waveMove {
+                                0% {
+                                    background-position: 0 100%;
+                                }
+                                100% {
+                                    background-position: -20px 100%;
+                                }
                             }
                         }
                     }
@@ -185,6 +199,11 @@ body {
             }
         }
 
+        main.active {
+            right: 240px;
+        }
+
+        //侧边按钮
         .aside-btn {
             position: fixed;
             top: 45px;
@@ -223,108 +242,118 @@ body {
             }
         }
 
-        main.active {
-            right: 240px;
-        }
-
+        //侧边菜单
         aside {
             position: fixed;
-            top: 45px;
+            top: 30px;
             right: -240px;
             width: 240px;
-            //height: calc(100vh - 60px);
+            height: calc(100vh - 30px);
             //background-color: #990055;
             transition: 1s ease-in-out;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            scrollbar-width: none;
 
-            .head-portrait {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                width: 100%;
-                height: auto;
-
-                @keyframes wave {
-                    0% {
-                        opacity: 0;
-                    }
-                    50% {
-                        opacity: 0.8;
-                    }
-                    100% {
-                        transform: scale(1.3);
-                        opacity: 0;
-                    }
-                }
-
-                .logo {
-                    position: relative;
-                    width: 160px;
-                    height: 160px;
-                    padding: 10px;
-                    border: 1px solid rgba(255, 255, 255, 0.66);
-                    border-radius: 50%;
-                    transition: 1s ease-in-out;
-
-                    &:after {
-                        content: "";
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        border: 1px solid white;
-                        border-radius: 50%;
-                        animation: wave 1.5s infinite linear;
-                    }
-
-                    &:hover {
-                        transform: rotate(-360deg);
-                    }
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
+            &::-webkit-scrollbar {
+                width: 0;
+                height: 0;
             }
 
-            nav {
-                ul {
+            .fixed-box {
+                margin-top: 30px;
+                //头像
+                .head-portrait {
                     display: flex;
-                    justify-content: space-between;
-                    list-style: none;
-                    padding: 0;
-                    margin-top: 36px;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    width: 100%;
+                    height: auto;
 
-                    li {
-                        width: 36px;
-                        height: 36px;
+                    @keyframes wave {
+                        0% {
+                            opacity: 0;
+                        }
+                        50% {
+                            opacity: 0.8;
+                        }
+                        100% {
+                            transform: scale(1.3);
+                            opacity: 0;
+                        }
+                    }
 
-                        svg {
+                    .logo {
+                        position: relative;
+                        width: 160px;
+                        height: 160px;
+                        padding: 10px;
+                        border: 1px solid rgba(255, 255, 255, 0.66);
+                        border-radius: 50%;
+                        transition: 1s ease-in-out;
+
+                        &:after {
+                            content: "";
                             width: 100%;
                             height: 100%;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            border: 1px solid white;
+                            border-radius: 50%;
+                            animation: wave 1.5s infinite linear;
                         }
 
                         &:hover {
-                            animation: dance .6s infinite linear;
+                            transform: rotate(-360deg);
                         }
 
-                        @keyframes dance {
-                            0% {
-                                transform: translateY(0);
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                //导航菜单
+                nav {
+                    ul {
+                        display: flex;
+                        justify-content: space-between;
+                        list-style: none;
+                        padding: 0;
+                        margin-top: 36px;
+
+                        li {
+                            width: 36px;
+                            height: 36px;
+
+                            svg {
+                                width: 100%;
+                                height: 100%;
                             }
-                            25% {
-                                transform: translateY(-8px);
+
+                            &:hover {
+                                animation: dance .6s infinite linear;
                             }
-                            50% {
-                                transform: translateY(-16px) scale(1.2, 0.9);
-                            }
-                            75% {
-                                transform: translateY(-8px);
-                            }
-                            100% {
-                                transform: translateY(0);
+
+                            @keyframes dance {
+                                0% {
+                                    transform: translateY(0);
+                                }
+                                25% {
+                                    transform: translateY(-8px);
+                                }
+                                50% {
+                                    transform: translateY(-16px) scale(1.2, 0.9);
+                                }
+                                75% {
+                                    transform: translateY(-8px);
+                                }
+                                100% {
+                                    transform: translateY(0);
+                                }
                             }
                         }
                     }
@@ -346,8 +375,6 @@ body {
             }
 
             nav {
-                margin-right: 30px;
-
                 ul {
                     li {
                         margin: 0 15px;
@@ -357,19 +384,18 @@ body {
         }
 
         .pjax-container {
-            padding-top: 30px;
             width: 750px;
 
             main {
                 width: 100%;
+
+                section:first-child {
+                    width: 50%;
+                }
             }
 
             main.active {
                 right: calc(100vw / 2 - 750px / 2 + 240px);
-            }
-
-            aside {
-                top: 60px;
             }
 
             aside.active {
@@ -381,6 +407,12 @@ body {
 
 @media (min-width: 992px) {
     body {
+        header {
+            nav {
+                margin-right: 30px;
+            }
+        }
+
         .pjax-container {
             width: 970px;
 

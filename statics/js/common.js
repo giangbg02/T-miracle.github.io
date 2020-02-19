@@ -6,7 +6,7 @@ $(function () {
         fragment: '.pjax-container',
         timeout: 5000
     }).on('pjax:complete', function () {
-
+        GenerateContentList();
     });
 });
 

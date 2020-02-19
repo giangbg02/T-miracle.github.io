@@ -36,7 +36,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #222738; }
+    background-color: #222738;
+    z-index: 1000; }
     body header .website-name {
       margin-left: 5px;
       font-size: large;
@@ -64,6 +65,7 @@ body {
     body header nav {
       margin-right: 5px; }
       body header nav ul {
+        padding: 0;
         list-style: none;
         display: inline; }
         body header nav ul li {
@@ -79,8 +81,7 @@ body {
               color: orangered; }
   body .pjax-container {
     height: auto;
-    margin: 30px auto 80px;
-    padding-top: 15px; }
+    margin: 30px auto 80px; }
     body .pjax-container:after {
       content: '';
       display: block;
@@ -91,38 +92,45 @@ body {
     body .pjax-container main {
       position: relative;
       right: 0;
+      display: flex;
+      flex-wrap: wrap;
       width: 100%;
-      height: 400px;
+      height: auto;
       transition: 1s ease-in-out; }
-      body .pjax-container main span {
-        padding: 5px;
-        border-radius: 6px;
-        font-size: 1.6em;
-        color: crimson;
-        letter-spacing: 3px;
-        font-weight: normal; }
-      body .pjax-container main ul {
-        list-style: circle;
-        padding-left: 10px; }
-        body .pjax-container main ul li {
-          margin-top: 20px; }
-          body .pjax-container main ul li a {
-            font-size: 1.1em;
-            color: greenyellow;
-            text-decoration: none; }
-            body .pjax-container main ul li a:hover {
-              border-bottom: 0;
-              padding-bottom: 3px;
-              color: darkorange;
-              background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
-              background-size: 20px auto;
-              text-decoration: none !important;
-              animation: waveMove 1s infinite linear; }
+      body .pjax-container main section:first-child {
+        width: 100%;
+        padding: 0 30px; }
+        body .pjax-container main section:first-child span {
+          padding: 5px;
+          border-radius: 6px;
+          font-size: 1.6em;
+          color: crimson;
+          letter-spacing: 3px;
+          font-weight: normal; }
+        body .pjax-container main section:first-child ul {
+          list-style: circle;
+          padding-left: 10px; }
+          body .pjax-container main section:first-child ul li {
+            margin-top: 20px; }
+            body .pjax-container main section:first-child ul li a {
+              font-size: 1.1em;
+              color: greenyellow;
+              text-decoration: none; }
+              body .pjax-container main section:first-child ul li a:hover {
+                border-bottom: 0;
+                padding-bottom: 3px;
+                color: darkorange;
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
+                background-size: 20px auto;
+                text-decoration: none !important;
+                animation: waveMove 1s infinite linear; }
 @keyframes waveMove {
   0% {
     background-position: 0 100%; }
   100% {
     background-position: -20px 100%; } }
+    body .pjax-container main.active {
+      right: 240px; }
     body .pjax-container .aside-btn {
       position: fixed;
       top: 45px;
@@ -144,21 +152,28 @@ body {
         opacity: 0; }
       body .pjax-container .aside-btn.active .btn-line:nth-child(5) {
         transform: rotate(-45deg) translate(20%, -150%); }
-    body .pjax-container main.active {
-      right: 240px; }
     body .pjax-container aside {
       position: fixed;
-      top: 45px;
+      top: 30px;
       right: -240px;
       width: 240px;
-      transition: 1s ease-in-out; }
-      body .pjax-container aside .head-portrait {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        width: 100%;
-        height: auto; }
+      height: calc(100vh - 30px);
+      transition: 1s ease-in-out;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      scrollbar-width: none; }
+      body .pjax-container aside::-webkit-scrollbar {
+        width: 0;
+        height: 0; }
+      body .pjax-container aside .fixed-box {
+        margin-top: 30px; }
+        body .pjax-container aside .fixed-box .head-portrait {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: auto; }
 @keyframes wave {
   0% {
     opacity: 0; }
@@ -167,43 +182,43 @@ body {
   100% {
     transform: scale(1.3);
     opacity: 0; } }
-        body .pjax-container aside .head-portrait .logo {
-          position: relative;
-          width: 160px;
-          height: 160px;
-          padding: 10px;
-          border: 1px solid rgba(255, 255, 255, 0.66);
-          border-radius: 50%;
-          transition: 1s ease-in-out; }
-          body .pjax-container aside .head-portrait .logo:after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            border: 1px solid white;
+          body .pjax-container aside .fixed-box .head-portrait .logo {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.66);
             border-radius: 50%;
-            animation: wave 1.5s infinite linear; }
-          body .pjax-container aside .head-portrait .logo:hover {
-            transform: rotate(-360deg); }
-          body .pjax-container aside .head-portrait .logo img {
-            width: 100%;
-            height: 100%; }
-      body .pjax-container aside nav ul {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-        padding: 0;
-        margin-top: 36px; }
-        body .pjax-container aside nav ul li {
-          width: 36px;
-          height: 36px; }
-          body .pjax-container aside nav ul li svg {
-            width: 100%;
-            height: 100%; }
-          body .pjax-container aside nav ul li:hover {
-            animation: dance .6s infinite linear; }
+            transition: 1s ease-in-out; }
+            body .pjax-container aside .fixed-box .head-portrait .logo:after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+              border: 1px solid white;
+              border-radius: 50%;
+              animation: wave 1.5s infinite linear; }
+            body .pjax-container aside .fixed-box .head-portrait .logo:hover {
+              transform: rotate(-360deg); }
+            body .pjax-container aside .fixed-box .head-portrait .logo img {
+              width: 100%;
+              height: 100%; }
+        body .pjax-container aside .fixed-box nav ul {
+          display: flex;
+          justify-content: space-between;
+          list-style: none;
+          padding: 0;
+          margin-top: 36px; }
+          body .pjax-container aside .fixed-box nav ul li {
+            width: 36px;
+            height: 36px; }
+            body .pjax-container aside .fixed-box nav ul li svg {
+              width: 100%;
+              height: 100%; }
+            body .pjax-container aside .fixed-box nav ul li:hover {
+              animation: dance .6s infinite linear; }
 @keyframes dance {
   0% {
     transform: translateY(0); }
@@ -221,22 +236,21 @@ body {
 @media (min-width: 768px) {
   body header .website-name {
     margin-left: 30px; }
-  body header nav {
-    margin-right: 30px; }
-    body header nav ul li {
-      margin: 0 15px; }
+  body header nav ul li {
+    margin: 0 15px; }
   body .pjax-container {
-    padding-top: 30px;
     width: 750px; }
     body .pjax-container main {
       width: 100%; }
+      body .pjax-container main section:first-child {
+        width: 50%; }
     body .pjax-container main.active {
       right: calc(100vw / 2 - 750px / 2 + 240px); }
-    body .pjax-container aside {
-      top: 60px; }
     body .pjax-container aside.active {
       right: calc(100% / 2 - 750px / 2); } }
 @media (min-width: 992px) {
+  body header nav {
+    margin-right: 30px; }
   body .pjax-container {
     width: 970px; }
     body .pjax-container main {

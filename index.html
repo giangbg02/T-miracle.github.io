@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
-        <title>MaokDown</title>
+        <title>Maokdown | Tmiracle's Blog</title>
         <base target="_self">
         <link rel="icon" href="statics/images/favicon.ico">
         <link rel="stylesheet" href="statics/css/common.css">
@@ -19,26 +19,27 @@
             <nav>
                 <ul>
                     <li><a href="/">首页</a></li>
-                    <li><a href="about-me.html">关于我</a></li>
                     <li><a href="navigation.html">导航</a></li>
-                    <li><a href="tag.html">标签</a></li>
                     <li><a href="links.html">友链</a></li>
+                    <li><a href="about-me.html">关于我</a></li>
                 </ul>
             </nav>
         </header>
         <div class="pjax-container">
             <main>
-                <span>博客文章</span>
-                <ul>
-                    <li><a href="#">获取网易云的歌曲、封面以及歌词</a></li>
-                    <li><a href="#">APlayer网站音乐播放器</a></li>
-                    <li><a href="#">Pjax：实现网站全局音乐播放</a></li>
-                    <li><a href="#">如何用js实现一个粘性定位</a></li>
-                    <li><a href="#">怎么给静态博客添加统计访问点击量</a></li>
-                    <li><a href="#">iconfont字体图标的引用</a></li>
-                    <li><a href="#">IoC概念</a></li>
-                    <li><a href="#">如何快速搭建一个Spring项目</a></li>
-                </ul>
+                <section>
+                    <span>博客文章</span>
+                    <ul>
+                        <li><a href="#">获取网易云的歌曲、封面以及歌词</a></li>
+                        <li><a href="#">APlayer网站音乐播放器</a></li>
+                        <li><a href="#">Pjax：实现网站全局音乐播放</a></li>
+                        <li><a href="#">如何用js实现一个粘性定位</a></li>
+                        <li><a href="#">怎么给静态博客添加统计访问点击量</a></li>
+                        <li><a href="#">iconfont字体图标的引用</a></li>
+                        <li><a href="#">IoC概念</a></li>
+                        <li><a href="#">如何快速搭建一个Spring项目</a></li>
+                    </ul>
+                </section>
             </main>
             <div class="aside-btn">
                 <div class="btn-line"></div>
@@ -48,43 +49,45 @@
                 <div class="btn-line"></div>
             </div>
             <aside>
-                <div class="head-portrait">
-                    <div class="logo">
-                        <img src="statics/images/icon/Tmiracle.png" alt>
+                <div class="fixed-box">
+                    <div class="head-portrait">
+                        <div class="logo">
+                            <img src="statics/images/icon/Tmiracle.png" alt>
+                        </div>
                     </div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="https://github.com/T-miracle" target="_blank">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-Github"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://tmiracle.coding.net/user" target="_blank">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-coding"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.jianshu.com/u/3ad48efef1e7" target="_blank">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-jianshu"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://space.bilibili.com/14816067" target="_blank">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-bilibili"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="https://github.com/T-miracle" target="_blank">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-Github"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://tmiracle.coding.net/user" target="_blank">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-coding"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.jianshu.com/u/3ad48efef1e7" target="_blank">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-jianshu"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://space.bilibili.com/14816067" target="_blank">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-bilibili"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
             </aside>
         </div>
         <div id="APlayer"></div>
