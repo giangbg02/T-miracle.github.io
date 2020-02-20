@@ -491,16 +491,41 @@ body {
                             color: white;
                         }
 
-                        &:nth-child(1) {background-color: #e67e22}
-                        &:nth-child(2) {background-color: #27ae60}
-                        &:nth-child(3) {background-color: #ff6b6b}
-                        &:nth-child(4) {background-color: #4c92a7
+                        &:nth-child(1) {
+                            background-color: #e67e22
                         }
-                        &:nth-child(5) {background-color: #f368e0}
-                        &:nth-child(6) {background-color: #546de5}
-                        &:nth-child(7) {background-color: #c44569}
-                        &:nth-child(8) {background-color: #e15f41}
-                        &:nth-child(9) {background-color: #574b90}
+
+                        &:nth-child(2) {
+                            background-color: #27ae60
+                        }
+
+                        &:nth-child(3) {
+                            background-color: #ff6b6b
+                        }
+
+                        &:nth-child(4) {
+                            background-color: #4c92a7
+                        }
+
+                        &:nth-child(5) {
+                            background-color: #f368e0
+                        }
+
+                        &:nth-child(6) {
+                            background-color: #546de5
+                        }
+
+                        &:nth-child(7) {
+                            background-color: #c44569
+                        }
+
+                        &:nth-child(8) {
+                            background-color: #e15f41
+                        }
+
+                        &:nth-child(9) {
+                            background-color: #574b90
+                        }
                     }
                 }
             }

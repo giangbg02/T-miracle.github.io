@@ -25,6 +25,7 @@ function GenerateContentList() {
 
     //判断页面是否含有文章目录容器，如果有，则加载文章目录
     if ($("#toc").length > 0) {
+        $('#toc').empty();
         $("#toc").tocify({
             context: 'main',
             selectors: 'h2,h3,h4',
