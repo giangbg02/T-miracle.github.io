@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="statics/APlayer/APlayer.min.css">
         <link rel="stylesheet" href="statics/layer/theme/default/layer.css">
         <link rel="stylesheet" href="statics/prism/prism.css">
+        <link rel="stylesheet" href="statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="statics/gitalk/gitalk.css">
         <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
     </head>
     <body>
@@ -29,15 +31,29 @@
             <main>
                 <section>
                     <span>博客文章</span>
+                    <hr>
                     <ul>
-                        <li><a href="#">获取网易云的歌曲、封面以及歌词</a></li>
-                        <li><a href="#">APlayer网站音乐播放器</a></li>
-                        <li><a href="#">Pjax：实现网站全局音乐播放</a></li>
-                        <li><a href="#">如何用js实现一个粘性定位</a></li>
-                        <li><a href="#">怎么给静态博客添加统计访问点击量</a></li>
-                        <li><a href="#">iconfont字体图标的引用</a></li>
-                        <li><a href="#">IoC概念</a></li>
-                        <li><a href="#">如何快速搭建一个Spring项目</a></li>
+                        <li><a href="article/wyy-get-song-lrc-pic.html">获取网易云的歌曲、封面以及歌词</a></li>
+                        <li><a href="article/aplayer.html">APlayer网站音乐播放器</a></li>
+                        <li><a class="tip">Pjax：实现网站全局音乐播放</a></li>
+                        <li><a class="tip">怎么给静态博客添加统计访问点击量</a></li>
+                        <li><a class="tip">iconfont字体图标的引用</a></li>
+                        <li><a href="article/ioc.html">IoC概念</a></li>
+                        <li><a class="tip">如何快速搭建一个Spring项目</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <span>计划存放</span>
+                    <hr>
+                    <ul>
+                        <li><a class="tip">计划文章</a></li>
+                        <li><a class="tip">计划文章</a></li>
+                        <li><a class="tip">计划文章</a></li>
+                        <li><a class="tip">计划文章</a></li>
+                        <li><a class="tip">计划文章</a></li>
+                        <li><a class="tip">计划文章</a></li>
+                        <li><a class="tip">计划文章</a></li>
+                        <li><a class="tip">计划文章</a></li>
                     </ul>
                 </section>
             </main>
@@ -55,38 +71,45 @@
                             <img src="statics/images/icon/Tmiracle.png" alt>
                         </div>
                     </div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="https://github.com/T-miracle" target="_blank">
-                                    <svg class="icon" aria-hidden="true">
-                                        <use xlink:href="#icon-Github"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://tmiracle.coding.net/user" target="_blank">
-                                    <svg class="icon" aria-hidden="true">
-                                        <use xlink:href="#icon-coding"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.jianshu.com/u/3ad48efef1e7" target="_blank">
-                                    <svg class="icon" aria-hidden="true">
-                                        <use xlink:href="#icon-jianshu"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://space.bilibili.com/14816067" target="_blank">
-                                    <svg class="icon" aria-hidden="true">
-                                        <use xlink:href="#icon-bilibili"></use>
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <ul class="link">
+                        <li>
+                            <a href="https://github.com/T-miracle" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-Github"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://tmiracle.coding.net/user" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-coding"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.jianshu.com/u/3ad48efef1e7" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-jianshu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://space.bilibili.com/14816067" target="_blank">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-bilibili"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tag">
+                        <li><a>Spring</a></li>
+                        <li><a>IDEA</a></li>
+                        <li><a>CSS</a></li>
+                        <li><a>MySQL</a></li>
+                        <li><a>Spring Boot</a></li>
+                        <li><a>JavaScript</a></li>
+                        <li><a>技巧</a></li>
+                    </ul>
                 </div>
             </aside>
         </div>
@@ -95,10 +118,15 @@
         <script src="statics/JQuery/jquery.js"></script>
         <script src="statics/js/stars.js"></script>
         <script src="statics/Pjax/jquery.pjax.js"></script>
-        <script src="statics/js/common.js"></script>
         <script src="statics/layer/layer.js"></script>
         <script src="statics/MD5/md5.min.js"></script>
+        <script src="statics/gitalk/gitalk.min.js"></script>
         <script src="statics/prism/prism.js"></script>
+        <script src="statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="statics/tocify/bootstrap.js"></script>
+        <script src="statics/tocify/jquery.tocify.js"></script>
+        <script src="statics/tocify/prettify.js"></script>
+        <script src="statics/js/common.js"></script>
         <script src="statics/APlayer/APlayer.min.js"></script>
         <script src="statics/APlayer/APlayer-music-list.js"></script>
     </body>

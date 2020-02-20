@@ -603,7 +603,7 @@
 
                             currentElem;
 
-                        console.log("距离顶部：" + winScrollTop + "，主窗口高度：" + winHeight + "，内容高度：" + docHeight + "，容器总高度：" + scrollHeight)
+                        // console.log("距离顶部：" + winScrollTop + "，主窗口高度：" + winHeight + "，内容高度：" + docHeight + "，容器总高度：" + scrollHeight)
 
                         if(self.options.extendPage) {
 
@@ -961,7 +961,7 @@
 
             }
 
-            console.log("是否滚动：" + duration + "，元素顶部偏移量：" + scrollTo + "，选中元素与容器顶部距离：" + currentDiv.offset().top)
+            // console.log("是否滚动：" + duration + "，元素顶部偏移量：" + scrollTo + "，选中元素与容器顶部距离：" + currentDiv.offset().top)
 
 
             // Once all animations on the page are complete, this callback function will be called

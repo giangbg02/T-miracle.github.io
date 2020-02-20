@@ -37,7 +37,7 @@ body {
         top: 0;
         left: 0;
         pointer-events: none;
-        z-index: 999;
+        z-index: 10086;
     }
 
     //页头
@@ -141,25 +141,112 @@ body {
         main {
             position: relative;
             right: 0;
-            display: flex;
-            flex-wrap: wrap;
             width: 100%;
             height: auto;
             //background-color: #1E9FFF;
             transition: 1s ease-in-out;
 
-            //文章列表部分
-            section:first-child {
+            hr {
+                background-color: lightcoral;
+                border: lightcoral 1px solid;
+            }
+
+            //文章
+            article {
+                position: relative;
+                padding: 0 15px;
                 width: 100%;
-                padding: 0 30px;
+                height: auto;
+                color: #00faf0;
+
+                a {
+                    text-decoration: none;
+                    color: #fff600;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                img {
+                    opacity: 0.75;
+                    max-width: 100%;
+                    border: 1px solid rgba(255, 255, 255, 0.5);
+                    padding: 3px;
+                }
+
+                h1 {
+                    position: sticky;
+                    top: 30px;
+                    display: block;
+                    background-color: rgb(34, 39, 56);
+                    counter-reset: h2;
+                    text-align: center;
+                    font-size: 28px;
+                    color: #b71540;
+                    font-weight: bold;
+                    z-index: 666;
+                }
+
+                h2 {
+                    counter-reset: h3;
+                    font-size: 22px;
+                    color: #e58e26;
+                    font-weight: bold;
+
+                    &:before {
+                        counter-increment: h2;
+                        content: counter(h2) ".";
+                    }
+                }
+
+                h3 {
+                    font-size: 16px;
+                    color: #706fd3;
+                    font-weight: bold;
+
+                    &:before {
+                        counter-increment: h3;
+                        content: counter(h2) "." counter(h3) ".";
+                    }
+                }
+
+                .article-info {
+                    border-bottom: 1px solid #63ff6e;
+                    font-size: smaller;
+                    color: #63ff6e;
+                    opacity: 0.66;
+                }
+
+                p {
+                    line-height: 24px;
+
+                    strong {
+                        color: purple;
+                        padding: 0 5px;
+                    }
+
+                    > code {
+                        padding: 0 5px;
+                        color: #d8ffb9;
+                        font-size: smaller;
+                    }
+                }
+            }
+
+            //首页列表部分
+            section {
+                float: left;
+                width: 100%;
+                padding: 10px 30px;
                 //background-color: rgba(228, 228, 228, 0.5);
 
                 span {
                     padding: 5px;
                     border-radius: 6px;
                     font-size: 1.6em;
-                    color: crimson;
-                    letter-spacing: 3px;
+                    color: red;
+                    letter-spacing: 5px;
                     font-weight: normal;
                 }
 
@@ -262,6 +349,34 @@ body {
 
             .fixed-box {
                 margin-top: 30px;
+
+                &.toc {
+                    padding: 0 15px;
+
+                    h3 {
+                        letter-spacing: 10px;
+                        margin-left: 15px;
+                    }
+
+                    //文章目录
+                    #toc {
+                        .nav-list > .active > a, .nav-list > .active > a:hover {
+                            color: gold;
+                        }
+
+                        .nav-list > li > a {
+                            display: block;
+                            color: whitesmoke;
+                            padding: 2px 5px !important;
+                        }
+
+                        .nav > li > a:hover, .nav > li > a:focus {
+                            text-decoration: none;
+                            color: chartreuse;
+                        }
+                    }
+                }
+
                 //头像
                 .head-portrait {
                     display: flex;
@@ -317,45 +432,75 @@ body {
                 }
 
                 //导航菜单
-                nav {
-                    ul {
-                        display: flex;
-                        justify-content: space-between;
-                        list-style: none;
-                        padding: 0;
-                        margin-top: 36px;
+                ul.link {
+                    display: flex;
+                    justify-content: space-between;
+                    list-style: none;
+                    padding: 0;
+                    margin-top: 36px;
 
-                        li {
-                            width: 36px;
-                            height: 36px;
+                    li {
+                        width: 36px;
+                        height: 36px;
 
-                            svg {
-                                width: 100%;
-                                height: 100%;
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        &:hover {
+                            animation: dance .6s infinite linear;
+                        }
+
+                        @keyframes dance {
+                            0% {
+                                transform: translateY(0);
                             }
-
-                            &:hover {
-                                animation: dance .6s infinite linear;
+                            25% {
+                                transform: translateY(-8px);
                             }
-
-                            @keyframes dance {
-                                0% {
-                                    transform: translateY(0);
-                                }
-                                25% {
-                                    transform: translateY(-8px);
-                                }
-                                50% {
-                                    transform: translateY(-16px) scale(1.2, 0.9);
-                                }
-                                75% {
-                                    transform: translateY(-8px);
-                                }
-                                100% {
-                                    transform: translateY(0);
-                                }
+                            50% {
+                                transform: translateY(-16px) scale(1.2, 0.9);
+                            }
+                            75% {
+                                transform: translateY(-8px);
+                            }
+                            100% {
+                                transform: translateY(0);
                             }
                         }
+                    }
+                }
+
+                ul.tag {
+                    margin-top: 30px;
+                    padding: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    list-style: none;
+
+                    li {
+                        background-color: #990055;
+                        border-radius: 4px;
+                        padding: 0 5px;
+                        margin-top: 8px;
+
+                        a {
+                            text-decoration: none;
+                            color: white;
+                        }
+
+                        &:nth-child(1) {background-color: #e67e22}
+                        &:nth-child(2) {background-color: #27ae60}
+                        &:nth-child(3) {background-color: #ff6b6b}
+                        &:nth-child(4) {background-color: #4c92a7
+                        }
+                        &:nth-child(5) {background-color: #f368e0}
+                        &:nth-child(6) {background-color: #546de5}
+                        &:nth-child(7) {background-color: #c44569}
+                        &:nth-child(8) {background-color: #e15f41}
+                        &:nth-child(9) {background-color: #574b90}
                     }
                 }
             }
@@ -389,7 +534,7 @@ body {
             main {
                 width: 100%;
 
-                section:first-child {
+                section {
                     width: 50%;
                 }
             }
@@ -418,6 +563,10 @@ body {
 
             main {
                 width: 730px;
+
+                section {
+                    padding-top: 60px;
+                }
             }
 
             .aside-btn {
@@ -426,6 +575,10 @@ body {
 
             aside {
                 right: calc(100% / 2 - 970px / 2);
+
+                .fixed-box {
+                    margin-top: 60px;
+                }
             }
         }
     }
@@ -445,4 +598,9 @@ body {
             }
         }
     }
+}
+
+/*layer弹层*/
+.layer-skin {
+    background-color: #303952 !important;
 }

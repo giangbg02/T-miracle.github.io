@@ -10,11 +10,11 @@
     max-height: 90%;
     overflow: auto;
     margin-left: 2%;
-    /*position: fixed;*/
+    /*position: fixed;
     border: 1px solid rgba(255, 255, 255, 0.71);
     webkit-border-radius: 6px;
     moz-border-radius: 6px;
-    border-radius: 6px;
+    border-radius: 6px;*/
 }
 
 /* The Table of Contents is composed of multiple nested unordered lists.  These styles remove the default styling of an unordered list because it is ugly. */
