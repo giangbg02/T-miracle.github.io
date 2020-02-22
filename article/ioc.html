@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
-        <title>Maokdown | Tmiracle's Blog</title>
+        <title>Maokdown | 文章</title>
         <base target="_self">
         <link rel="icon" href="/statics/images/favicon.ico">
         <link rel="stylesheet" href="/statics/css/common.css">
@@ -42,7 +42,7 @@
                         <img src="http://www.plantuml.com/plantuml/svg/ROmn2i9044Nhp2aMhBVGz49s2yzWkMGd8eaxOJOIH6oyYIS8gKGyZvfZQ10K1ylt-E_7SXrgnswZyih5gFQG69UNAwPjy9OgOZKfYWAIZ9dQjs3qhnMnH_wA0yJFLMoGaPfTZLQUBR6gg5qmOW0OklEzFohjgGrwhh97VvNE_75sT32kbTRgrbs6_ZGLF1ES0XWH614O6LWHM17ySle4"
                              alt=""/></p>
                     <p>如上图所示，我们发现，类和对象的依赖关系非常严重，每次一个类中需要使用一个对象时，都需要在该类中new一个对象实例，代码如下：</p>
-                    <pre class="line-numbers"><code class="language-java">public class Obj1 {
+                    <pre><code class="java">public class Obj1 {
     public Obj1(){}
 }
 public class A {
@@ -59,7 +59,7 @@ public class A {
                     <p>对象交给IoC去创建后，是不是瞬间感觉清爽了很多？</p>
                     <p>众所周知（没错，我又去查了资料<code>[滑稽]</code>），IoC容器在全局维持一个对象实例集合和类名集合，我们在写某个类的时候把这个类依赖的对象注册到容器里，当我们需要使用某个对象时，IoC会通过Java的<strong>反射机制</strong>来找到这个对象并将该对象实例化出来。
                     </p>
-                    <pre class="line-numbers"><code class="language-java">public class Obj1 {
+                    <pre><code class="java">public class Obj1 {
     public Obj1(){}
 }
 public class A {

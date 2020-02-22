@@ -34,11 +34,6 @@ function GenerateContentList() {
         $("aside").toggleClass("active");
     });
 
-//判断页面是否含有代码块，如果有，则Prism渲染代码块
-    if ($('code').length > 0) {
-        Prism.highlightAll();
-    }
-
 // 判断页面是否含有gitalk容器，如果有，则加载gitalk评论系统
     if ($('#gitalk-container').length > 0) {
         var gitalk = new Gitalk({
@@ -65,6 +60,33 @@ function GenerateContentList() {
 
 //外链网址设置新标签打开
     $('a[href*="http"]').attr("target", "_blank");
+
+    //删除文章h1,h2,h3里的a标签
+    var aTag = $('a[href*="#"]');
+    for (let i = 0; i < aTag.length; i++) {
+        let text = aTag[i].innerHTML;
+        aTag[i].after(text);
+        aTag[i].remove();
+    }
+
+    //给文章pre和code添加Prism对应的class
+    var preTag = $('pre');
+    for (let i = 0; i < preTag.length; i++) {
+        preTag[i].setAttribute("class", "line-numbers");
+    }
+    var codeTag = $('code:not([class*=null])');
+    for (let i = 0; i < codeTag.length; i++) {
+        let className = codeTag[i].getAttribute("class");
+        codeTag[i].setAttribute("class", "language-" + className);
+    }
+
+    //判断页面是否含有代码块，如果有，则Prism渲染代码块
+    if (codeTag.length > 0) {
+        Prism.highlightAll();
+    }
+
+    //表格响应式
+    $('table').wrap('<div class="scroll-x"></div>')
 }
 
 function GenerateToc() {

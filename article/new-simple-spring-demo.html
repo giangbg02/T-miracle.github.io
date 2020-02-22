@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1>如何快速搭建一个Spring项目</h1>
+                    <p class="article-info">该文章创建于2020-11-21，最后修改于2020-11-21</p>
+                    <h2>建立工程</h2>
+                    <p>IDEA新建一个 <a href="/article/maven.html">Maven</a> 项目（File -&gt; New
+                        Project），选择工程类型为Maven，设置JDK后，点击Next，分别填写相应信息，最后单击Finish完成项目模块的搭建。</p>
+                    <p>创建示例工程后，需要配置数据源、Spring、数据库连接驱动、Servlet类库的依赖信息：</p>
+                    <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.smart&lt;/groupId&gt;
+    &lt;artifactId&gt;chapter2&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;name&gt;Spring4.x&lt;/name&gt;
+    &lt;description&gt;Spring4.x&lt;/description&gt;
+    &lt;packaging&gt;war&lt;/packaging&gt;
+    &lt;dependencies&gt;
+        &lt;!-- spring 依赖--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;
+            &lt;version&gt;${commons-dbcp.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;${mysql.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;${servlet.version}&lt;/version&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+            &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+            &lt;version&gt;${aspectj.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!-- jstl --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+            &lt;version&gt;1.2&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.testng&lt;/groupId&gt;
+            &lt;artifactId&gt;testng&lt;/artifactId&gt;
+            &lt;version&gt;${testng.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+            &lt;version&gt;${spring.version}&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;!-- jetty插件 --&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.mortbay.jetty&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-jetty-plugin&lt;/artifactId&gt;
+                &lt;version&gt;6.1.25&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;connectors&gt;
+                        &lt;connector implementation=&quot;org.mortbay.jetty.nio.SelectChannelConnector&quot;&gt;
+                            &lt;port&gt;8000&lt;/port&gt;
+                            &lt;maxIdleTime&gt;60000&lt;/maxIdleTime&gt;
+                        &lt;/connector&gt;
+                    &lt;/connectors&gt;
+                    &lt;contextPath&gt;/bbs&lt;/contextPath&gt;
+                    &lt;scanIntervalSeconds&gt;0&lt;/scanIntervalSeconds&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.17&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;parallel&gt;methods&lt;/parallel&gt;
+                    &lt;threadCount&gt;10&lt;/threadCount&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+    &lt;properties&gt;
+        &lt;file.encoding&gt;UTF-8&lt;/file.encoding&gt;
+        &lt;spring.version&gt;4.2.2.RELEASE&lt;/spring.version&gt;
+        &lt;mysql.version&gt;5.1.29&lt;/mysql.version&gt;
+        &lt;servlet.version&gt;3.0-alpha-1&lt;/servlet.version&gt;
+        &lt;aspectj.version&gt;1.8.1&lt;/aspectj.version&gt;
+        &lt;commons-codec.version&gt;1.9&lt;/commons-codec.version&gt;
+        &lt;commons-dbcp.version&gt;1.4&lt;/commons-dbcp.version&gt;
+        &lt;hibernate.validator.version&gt;5.0.2.Final&lt;/hibernate.validator.version&gt;
+        &lt;jetty.version&gt;8.1.8.v20121106&lt;/jetty.version&gt;
+        &lt;slf4j.version&gt;1.7.5&lt;/slf4j.version&gt;
+        &lt;testng.version&gt;6.8.7&lt;/testng.version&gt;
+    &lt;/properties&gt;
+&lt;/project&gt;
+</code></pre>
+                    <p>点击IDEA工程右边的Maven Project选项卡，选中clean和install并运行：</p>
+                    <p>
+                        <img src="/statics/images/screenshot/Snipaste_2019-11-26_00-22-10.png"
+                             alt=""/></p>
+                    <p>之后，Maven会将工程所依赖的jar包下载到本地。</p>
+                    <h2>类包及Spring配置文件的规划</h2>
+                    <p>
+                        <img src="/statics/images/screenshot/Snipaste_2019-11-26_00-30-57.png"
+                             alt=""/></p>
+                    <ul>
+                        <li>
+                            <p>dao：数据持久层</p>
+                        </li>
+                        <li>
+                            <p>domain：实体对象层</p>
+                        </li>
+                        <li>
+                            <p>service：业务逻辑层</p>
+                        </li>
+                        <li>
+                            <p>web（controller）：流程控制层</p>
+                        </li>
+                        <li>
+                            <p>resources：源文件夹，存放Spring配置文件和其他配置文件</p>
+                        </li>
+                        <li>
+                            <p>webapp：视图层</p>
+                        </li>
+                    </ul>
+                    <h2>在Spring中装配dao和service</h2>
+                    <p>在resources源文件夹下创建一个名为smart-context的Spring配置文件：</p>
+                    <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd&quot;&gt;
+
+    &lt;!-- 扫描类包，将标注Spring注解的类自动转化Bean，同时完成Bean的注入 --&gt;
+    &lt;context:component-scan base-package=&quot;com.smart.dao&quot;/&gt;
+    &lt;context:component-scan base-package=&quot;com.smart.service&quot;/&gt;
+
+    &lt;!-- 配置数据源 --&gt;
+    &lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;
+          destroy-method=&quot;close&quot;
+          p:driverClassName=&quot;com.mysql.jdbc.Driver&quot;
+          p:url=&quot;jdbc:mysql://localhost:3306/sampledb&quot;
+          p:username=&quot;root&quot;
+          p:password=&quot;root&quot;/&gt;
+
+    &lt;!-- 配置Jdbc模板  --&gt;
+    &lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;
+          p:dataSource-ref=&quot;dataSource&quot;/&gt;
+
+    &lt;!-- 配置事务管理器 --&gt;
+    &lt;bean id=&quot;transactionManager&quot;
+          class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;
+          p:dataSource-ref=&quot;dataSource&quot;/&gt;
+
+    &lt;!-- 通过AOP配置提供事务增强，让service包下所有Bean的所有方法拥有事务 --&gt;
+    &lt;aop:config proxy-target-class=&quot;true&quot;&gt;
+        &lt;aop:pointcut id=&quot;serviceMethod&quot;
+                      expression=&quot;(execution(* com.smart.service..*(..))) and (@annotation(org.springframework.transaction.annotation.Transactional))&quot;/&gt;
+        &lt;aop:advisor pointcut-ref=&quot;serviceMethod&quot; advice-ref=&quot;txAdvice&quot;/&gt;
+    &lt;/aop:config&gt;
+    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+        &lt;tx:attributes&gt;
+            &lt;tx:method name=&quot;*&quot;/&gt;
+        &lt;/tx:attributes&gt;
+    &lt;/tx:advice&gt;
+&lt;/beans&gt;
+</code></pre>
+                    <h2>配置web.xml文件</h2>
+                    <p>web.xml在webapp的WEB-INF文件夹下，配置它以便Web容器启动时能够自动启动Spring容器。</p>
+                    <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app version=&quot;2.5&quot;
+	xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+	xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;&gt;
+	&lt;welcome-file-list&gt;
+		&lt;welcome-file&gt;/WEB-INF/jsp/login.jsp&lt;/welcome-file&gt;
+	&lt;/welcome-file-list&gt;
+
+    &lt;!--从类路径下加载Spring配置文件，classpath关键字特指类路径下加载--&gt;
+	&lt;!--注意：将log4J.properties日志配置文件放置在类路径下，以便日志引擎自动生效--&gt;
+	&lt;context-param&gt;
+		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+		&lt;param-value&gt;classpath:smart-context.xml&lt;/param-value&gt;
+	&lt;/context-param&gt;
+	&lt;!--指定ContextLoaderListener的Web监听容器，该监听器在Web容器启动时自动运行，它会根据ContextLoaderListener Web容器参数获取Spring配置文件，并启动Spring容器--&gt;
+	&lt;listener&gt;
+		&lt;listener-class&gt;
+			org.springframework.web.context.ContextLoaderListener
+		&lt;/listener-class&gt;
+	&lt;/listener&gt;
+
+    &lt;!--Spring MVC主控Servlet--&gt;
+	&lt;servlet&gt;
+		&lt;servlet-name&gt;smart&lt;/servlet-name&gt;
+		&lt;servlet-class&gt;
+			org.springframework.web.servlet.DispatcherServlet
+		&lt;/servlet-class&gt;
+		&lt;load-on-startup&gt;3&lt;/load-on-startup&gt;
+	&lt;/servlet&gt;
+
+	&lt;servlet-mapping&gt;
+		&lt;servlet-name&gt;smart&lt;/servlet-name&gt;
+		&lt;url-pattern&gt;*.html&lt;/url-pattern&gt;
+	&lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
+                    <h2>视图映射配置</h2>
+                    <p>因为上面配置了Spring MVC主控Servlet，所以我们需要在web.xml文件同文件夹下创建一个Spring视图映射xml配置文件。</p>
+                    <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+	xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd&quot;&gt;
+
+    &lt;!-- 扫描web包，应用Spring的注解 --&gt;
+    &lt;context:component-scan base-package=&quot;com.smart.web&quot;/&gt;
+
+    &lt;!-- 配置视图解析器，将ModelAndView及字符串解析为具体的页面 --&gt;
+    &lt;bean
+            class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;
+            p:viewClass=&quot;org.springframework.web.servlet.view.JstlView&quot;
+            p:prefix=&quot;/WEB-INF/jsp/&quot;
+            p:suffix=&quot;.jsp&quot; /&gt;
+&lt;/beans&gt;
+</code></pre>
+                    <p>这个配置文件和上面定义的Servlet名有一个契约，即采用&lt;Servlet名&gt;-servlet的形式。</p>
+                    <p>但是如果这个配置文件不和web.xml放在同一个文件夹下，而是放在resources源文件夹下，那么需要这么配置Servlet：</p>
+                    <pre><code class="xml">&lt;servlet&gt;
+    &lt;servlet-name&gt;smart&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;
+        org.springframework.web.servlet.DispatcherServlet
+    &lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:smart-servlet.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;3&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</code></pre>
+                    <p>使用contextConfigLocation指定文件位置。</p>
+                    <h2>完成代码编写</h2>
+                    <p>之后就是完成代码的编写，记得service业务逻辑层需要加@Service注解，而web（controller）流程控制层需要加@Controller注解。</p>
+                    <p>在之后完成JSP页面的编写，即可运行项目了。</p>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>

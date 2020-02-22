@@ -159,6 +159,26 @@ body {
                 height: auto;
                 color: #00faf0;
 
+                .scroll-x {
+                    overflow-x: auto;
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(169, 169, 169, 0.5) transparent;
+
+                    &::-webkit-scrollbar {
+                        width: 5px;
+                        height: 5px;
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: rgba(169, 169, 169, 0.5);
+                    }
+                }
+
+                ol {
+                    color: darksalmon;
+                }
+
                 ul {
                     list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="tomato"></path></svg>');
 
@@ -173,6 +193,49 @@ body {
 
                     &:hover {
                         text-decoration: underline;
+                    }
+                }
+
+                table {
+                    border-collapse: collapse;
+                    min-width: 100%;
+                    border: 2px grey solid;
+                    background: rgba(0, 0, 0, 0.25);
+                    color: white;
+                    opacity: .8;
+
+                    tr, th {
+                        border: 2px grey solid;
+
+                        td, th {
+                            border: 2px grey solid;
+                            padding: 5px;
+                            white-space: nowrap;
+                        }
+                    }
+
+                    > tr:nth-child(even) {
+                        background-color: rgba(0, 56, 57, 0.25);
+                    }
+
+                    > tr:hover {
+                        background-color: rgba(48, 39, 80, 0.5);
+                    }
+
+                    thead {
+                        tr {
+                            background-color: rgba(71, 0, 87, 0.5);
+                        }
+                    }
+
+                    tbody {
+                        tr:nth-child(even) {
+                            background-color: rgba(0, 56, 57, 0.25);
+                        }
+
+                        tr:hover {
+                            background-color: rgba(48, 39, 80, 0.5);
+                        }
                     }
                 }
 
@@ -223,22 +286,22 @@ body {
                     border-bottom: 1px solid #63ff6e;
                     font-size: smaller;
                     color: #63ff6e;
-                    opacity: 0.66;
+                    opacity: 0.8;
                 }
 
                 p {
                     line-height: 24px;
-
-                    strong {
-                        color: purple;
-                        padding: 0 5px;
-                    }
 
                     > code {
                         padding: 0 5px;
                         color: #d8ffb9;
                         font-size: smaller;
                     }
+                }
+
+                strong {
+                    color: #bc00bc;
+                    padding: 0 5px;
                 }
             }
 
@@ -342,11 +405,15 @@ body {
                 padding: 0 15px;
 
                 li {
-                    list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
+                    list-style: inside url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
                     margin-top: 20px;
 
                     &:hover {
-                        list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="darkorange"></path></svg>');
+                        list-style: inside url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="darkorange"></path></svg>');
+
+                        span {
+                            background-color: #aa5c00;
+                        }
 
                         a {
                             border-bottom: 0;
@@ -393,6 +460,7 @@ body {
             width: 24px;
             height: 20px;
             z-index: 666;
+            opacity: 0.33;
 
             .btn-line {
                 width: 100%;
@@ -485,19 +553,20 @@ body {
 
                     &:hover {
                         .logo {
-                            .square{
-                                background: rgba(0, 0, 0, 0.33);
+                            opacity: 0.8;
+
+                            .square {
+                                background: #222738;
                             }
 
-                            .black{
-                                background: rgba(255, 255, 255, 0.33);
+                            .black {
+                                background: #C4E538;
                             }
 
                             .img-box {
-                                transform: scale(0.16);
+                                transform: scale(0.3);
 
                                 img {
-                                    margin-bottom: -4px;
                                     padding: 0;
                                     border-color: transparent;
                                     border-radius: 50%;
@@ -505,91 +574,51 @@ body {
                                 }
                             }
                         }
-
-                        /*.logo {
-                            position: absolute;
-                            bottom: 0;
-                            left: 40px;
-                            width: 30px;
-                            height: 30px;
-                            background-color: whitesmoke;
-                            border: 1px solid whitesmoke;
-                            border-radius: 15%;
-                            transform: translate(0, -30px) rotate(-45deg);
-                            animation: move 2.5s infinite cubic-bezier(.79, 0, .47, .97);
-
-                            @keyframes move {
-                                0% {
-                                    transform: translate(0, -30px) rotate(-45deg);
-                                }
-                                5% {
-                                    transform: translate(0, -30px) rotate(-50deg);
-                                }
-                                20% {
-                                    transform: translate(30px, -60px) rotate(47deg);
-                                }
-                                25% {
-                                    transform: translate(30px, -60px) rotate(45deg);
-                                }
-                                30% {
-                                    transform: translate(30px, -60px) rotate(40deg);
-                                }
-                                45% {
-                                    transform: translate(60px, -90px) rotate(137deg);
-                                }
-                                50% {
-                                    transform: translate(60px, -90px) rotate(135deg);
-                                }
-                                55% {
-                                    transform: translate(60px, -90px) rotate(130deg);
-                                }
-                                70% {
-                                    transform: translate(90px, -120px) rotate(217deg);
-                                }
-                                75% {
-                                    transform: translate(90px, -120px) rotate(220deg);
-                                }
-                                100% {
-                                    transform: translate(0, -30px) rotate(-225deg);
-                                }
-                            }
-
-                            img {
-                                padding: 1px;
-                            }
-                        }*/
                     }
 
                     .logo {
                         position: relative;
                         width: 160px;
                         height: 160px;
-                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         //background-color: rgba(255,255,255,0.45);
 
-                        .square{
-                            height: 94%;
-                            width: 94%;
+                        .square {
+                            height: calc(100% - 4px);
+                            width: calc(100% - 4px);
                             background: transparent;
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            margin: -47% 0 0 -47%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             transition: .8s;
+                            //border-radius: 50%;
                         }
 
-                        .black{
+                        .black {
                             background: transparent;
-                            animation: rotate 10s infinite linear;
-                            transition: 1.6s;
+                            animation: rotate 16s infinite linear;
+                            transition: 2.4s;
                         }
 
-                        @keyframes rotate{
-                            0%{ transform: rotate(0deg); }
-                            100%{ transform: rotate(360deg); }
+                        .black.c {
+                            border-radius: 50%;
+                        }
+
+                        @keyframes rotate {
+                            0% {
+                                transform: rotate(0deg);
+                            }
+                            100% {
+                                transform: rotate(360deg);
+                            }
                         }
 
                         .img-box {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
                             transition: 1.6s;
 
                             img {
@@ -602,9 +631,13 @@ body {
                             }
                         }
 
-                        @keyframes rotate2{
-                            0%{ transform: rotate(0deg); }
-                            100%{ transform: rotate(360deg); }
+                        @keyframes rotate2 {
+                            0% {
+                                transform: rotate(0deg);
+                            }
+                            100% {
+                                transform: rotate(360deg);
+                            }
                         }
                     }
                 }
@@ -716,6 +749,10 @@ body {
 
         aside.active {
             right: 0;
+        }
+
+        .tip {
+            color: darkgrey !important;
         }
     }
 }
