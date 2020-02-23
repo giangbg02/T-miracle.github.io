@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1><a href="#bookjson详细配置" id="bookjson详细配置">book.json详细配置</a></h1>
+                    <p class="article-info">该文章创建于2019-9-13，最后修改于2019-9-13</p>
+                    <h2><a href="#结构" id="结构">结构</a></h2>
+                    <pre><code class="json">{
+        &quot;title&quot;: &quot;Tmiracle的博客文档&quot;,
+        &quot;description&quot;: &quot;Tmiracle's Blog Docs&quot;,
+        &quot;author&quot;: &quot;Tmiracle&quot;,
+        &quot;output.name&quot;: &quot;site&quot;,
+        &quot;language&quot;: &quot;zh-hans&quot;,
+        &quot;gitbook&quot;: &quot;3.2.3&quot;,
+        &quot;root&quot;: &quot;.&quot;,
+        &quot;plugins&quot;: [
+            &quot;donate&quot;,
+            &quot;-lunr&quot;,
+            &quot;-search&quot;,
+            &quot;-highlight&quot;,
+            &quot;-sharing&quot;,
+            &quot;github&quot;
+        ],
+        &quot;pluginsConfig&quot;: {
+            &quot;github&quot;: {
+                &quot;url&quot;: &quot;https://github.com/ImTmiracle/ImTmiracle.github.io&quot;
+            }
+        }
+    }
+</code></pre>
+                    <table>
+                        <thead>
+                        <tr><th align="center">字段</th><th align="center">属性</th></tr>
+                        </thead>
+                        <tbody>
+                        <tr><td align="center">title</td><td align="center">浏览器显示标题</td></tr>
+                        <tr><td align="center">description</td><td align="center">浏览器显示描述</td></tr>
+                        <tr><td align="center">author</td><td align="center">作者标识</td></tr>
+                        <tr><td align="center">output.name</td><td align="center">输出方式</td></tr>
+                        <tr><td align="center">language</td><td align="center">语言标识</td></tr>
+                        <tr><td align="center">gitbook</td><td align="center">版本标识</td></tr>
+                        <tr><td align="center">root</td><td align="center">路径标识</td></tr>
+                        <tr><td align="center">plugins</td><td align="center">插件</td></tr>
+                        <tr><td align="center">pluginsConfig</td><td align="center">相应插件配置</td></tr>
+                        </tbody>
+                    </table>
+                    <h2><a href="#推荐插件" id="推荐插件">推荐插件</a></h2>
+                    <p><a href="https://www.cnblogs.com/mingyue5826/p/10307051.html">点我查看更详细的配置</a></p>
+                    <ul>
+                        <li>
+                            <p><strong>-lunr 去除默认识别引擎</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>-search 去除默认搜索引擎</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>-highlight 去除默认代码高亮</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>-sharing 去除默认分享按钮</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>sharing-plus 分享按钮加强版</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;sharing&quot;: {
+    &quot;douban&quot;: false,    ---启用豆瓣
+    &quot;facebook&quot;: false,      ---启用脸书
+    &quot;google&quot;: false,      ---启用谷歌
+    &quot;hatenaBookmark&quot;: false,    ---启用hatenaBookmark
+    &quot;instapaper&quot;: false,    ---启用instapaper
+    &quot;line&quot;: false,      ---启用line
+    &quot;linkedin&quot;: false,      ---启用linkedin
+    &quot;messenger&quot;: false,     ---启用messenger
+    &quot;pocket&quot;: false,        ---启用pocket
+    &quot;qq&quot;: true,     ---启用QQ
+    &quot;qzone&quot;: true,      ---启用QQ空间
+    &quot;stumbleupon&quot;: false,       ---启用stumbleupon
+    &quot;twitter&quot;: false,       ---启用推特
+    &quot;viber&quot;: false,     ---启用viber
+    &quot;vk&quot;: false,        ---启用vk
+    &quot;weibo&quot;: true,      ---启用新浪微博
+    &quot;whatsapp&quot;: false,      ---启用whatsapp
+    &quot;all&quot;: [
+        &quot;facebook&quot;,
+        &quot;google&quot;,
+        &quot;twitter&quot;,
+        &quot;instapaper&quot;,
+        &quot;linkedin&quot;,
+        &quot;pocket&quot;,
+        &quot;stumbleupon&quot;
+    ]
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>search-pro　搜索加强版（中文搜索引擎，搜索优化）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>search-plus 中文搜索（不好用，推荐用search-pro）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>hide-element 隐藏目录左下角的文字</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;hide-element&quot;: {
+    &quot;elements&quot;: [
+        &quot;.gitbook-link&quot;
+    ]
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>expandable-chapters 折叠目录（多层目录，点击箭头自动展开）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>chapter-fold 折叠目录（多层折叠，点击标题自动展开，有箭头（建议使用这个））</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>toggle-chapters 折叠目录（多层折叠，点击标题自动展开，无箭头）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>collapsible-menu 折叠目录（多层折叠，点击标题自动展开，无箭头）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>expandable-chapters-small 折叠目录（多层目录，mini箭头，点击箭头自动展开）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>accordion 折叠目录（2019.9.1记录：无法使用）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>github-buttons github按钮（添加项目在 github 上的 star，watch，fork情况）</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;pluginsConfig&quot;: {
+    &quot;github-buttons&quot;: {
+        &quot;repo&quot;: &quot;xxx/gitbook-use&quot;,      ---github仓库地址
+        &quot;types&quot;: [      ---显示图标
+            &quot;star&quot;,
+            &quot;watch&quot;,
+            &quot;fork&quot;
+        ],
+        &quot;size&quot;: &quot;small&quot;     ---尺寸
+    }
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>donate 打（tao）赏（fan）按钮</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;donate&quot;: {
+    &quot;wechat&quot;: &quot;&quot;,       ---微信二维码地址
+    &quot;alipay&quot;: &quot;&quot;,       ---支付宝二维码地址
+    &quot;title&quot;: &quot;&quot;,        ---按钮边的文字
+    &quot;button&quot;: &quot;&quot;,      ---按钮上的文字
+    &quot;alipayText&quot;: &quot;&quot;,       ---支付宝二维码下的文字
+    &quot;wechatText&quot;: &quot;&quot;        ---微信二维码下的文字
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>github github仓库链接</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;github&quot;: {
+            &quot;url&quot;: &quot;https://github.com/ImTmiracle/ImTmiracle.github.io&quot; ---仓库地址
+        }
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>prism 代码块主题配色插件 和 prism-themes 代码块主题配色方案</strong></p>
+                            <p>prism和prism-themes需要同时使用，主题地址： <a href="https://github.com/PrismJS/prism-themes">传送门</a></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;prism&quot;: {
+    &quot;css&quot;: [
+        &quot;prism-themes/themes/prism-&lt;your theme&gt;.css&quot;
+    ]
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>custom-favicon 浏览器标签logo</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;favicon&quot;: &quot;icon/favicon.ico&quot;   ---必须是.ico
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>insert-logo 左上角个人头像</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;insert-logo&quot;: {
+    &quot;url&quot;: &quot;/icon/logo.png&quot;,        ---图片地址
+    &quot;style&quot;: &quot;background: none; max-height: 90px; min-height: 90px&quot;     ---图片样式
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>code markdown代码块复制按钮</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>pageview-count 文章阅读数统计</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>lightbox 弹层显示图片</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>popup 新窗口查看图片（建议使用lightbox）</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>splitter 侧边栏宽度调节</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>tbfed-pagefooter 页脚（最后修改时间显示）</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;tbfed-pagefooter&quot;: {
+    &quot;copyright&quot;: &quot;copyright &amp;copy Tmiracle&quot;,
+    &quot;modify_label&quot;: &quot;该文件最后修改时间：&quot;,
+    &quot;modify_format&quot;: &quot;YYYY-MM-DD HH:mm:ss&quot;
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>anchor-navigation-ex-toc 添加Toc到侧边悬浮导航以及回到顶部按钮（增强版）</strong></p>
+                            <p>pluginsConfig中添加详细配置：</p>
+                            <pre><code class="json">&quot;anchor-navigation-ex-toc&quot;: {
+    &quot;showLevel&quot;: true,      ---展示级别
+    &quot;associatedWithSummary&quot;: true,      ---目录关联
+    &quot;printLog&quot;: false,      ---打印日志
+    &quot;multipleH1&quot;: false,
+    &quot;mode&quot;: &quot;float&quot;,
+    &quot;showGoTop&quot;: true,      ---展示回到顶部按钮
+    &quot;float&quot;: {
+        &quot;floatIcon&quot;: &quot;fa fa-navicon&quot;,
+        &quot;showLevelIcon&quot;: true,
+        &quot;level1Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+        &quot;level2Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+        &quot;level3Icon&quot;: &quot;fa fa-hand-o-right&quot;
+    },
+    &quot;pageTop&quot;: {
+        &quot;showLevelIcon&quot;: true,
+        &quot;level1Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+        &quot;level2Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+        &quot;level3Icon&quot;: &quot;fa fa-hand-o-right&quot;
+    }
+}
+</code></pre>
+                        </li>
+                        <li>
+                            <p><strong>anchor-navigation-ex 添加Toc到侧边悬浮导航以及回到顶部按钮</strong></p>
+                        </li>
+                        <li>
+                            <p><strong>back-to-top-button 回到顶部按钮</strong></p>
+                        </li>
+                    </ul>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>

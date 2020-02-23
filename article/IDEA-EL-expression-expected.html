@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
-        <title>Maokdown | 标签:JavaScript</title>
+        <title>Maokdown | 文章</title>
         <base target="_self">
         <link rel="icon" href="/statics/images/favicon.ico">
         <link rel="stylesheet" href="/statics/css/common.css">
@@ -28,19 +28,31 @@
             </nav>
         </header>
         <div class="pjax-container">
-            <div class="content-box">
-                <div class="list-title">
-                    <h1>JavaScript</h1>
-                    <hr>
-                </div>
-                <ul>
-                    <li class="time">2020</li>
-                    <li><p><span>1-17</span><a href="/article/aplayer.html">APlayer网站音乐播放器</a></p></li>
-                    <li><p><span>1-15</span><a class="tip">Pjax：实现网站全局音乐播放</a></p></li>
-                    <li class="time">2019</li>
-                    <li><p><span>10-23</span><a href="/article/click-copy-url.html">点击a标签实现复制链接url</a></p></li>
-                </ul>
+            <main>
+                <article>
+                    <h1><a href="#idea中使用el表达式报错expression-expected的问题" id="idea中使用el表达式报错expression-expected的问题">IDEA中使用EL表达式报错expression expected的问题</a></h1>
+                    <p class="article-info">该文章创建于2019-6-3，最后修改于2019-6-3</p>
+                    <p><img src="/statics/images/screenshot/Snipaste_2019-05-23_22-31-21.png" alt="" /></p>
+                    <p>这段代码在MyEclipse中没有问题，因为idea的严格代码检查，这里会显示expression expected的错误</p>
+                    <p>原因是因为js的函数无法识别参数是什么类型的值，El表达式得到的值有可能是数字，也有可能是字符串</p>
+                    <p>我们需要<strong>用单引号将EL表达式包起来</strong>就可以了</p>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
             </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
         </div>
         <div id="APlayer"></div>
 

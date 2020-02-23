@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1><a href="#gitbook从安装到部署" id="gitbook从安装到部署">Gitbook从安装到部署</a></h1>
+                    <p class="article-info">该文章创建于2019-9-9，最后修改于2019-10-6</p>
+                    <p><strong>在此首先感谢这位大佬的教程：<a href="http://gitbook.zhangjikai.com/"><font color='E6005C'>传送门</font></a></strong></p>
+                    <h2><a href="#gitbook安装" id="gitbook安装">Gitbook安装</a></h2>
+                    <h3><a href="#安装-nodejs" id="安装-nodejs">安装 Node.js</a></h3>
+                    <p>首先我们需要安装NodeJs软件，因为gitbook是用npm命令行安装的..</p>
+                    <p>NodeJs官网：<a href="https://nodejs.org/zh-cn/">传送门</a></p>
+                    <p>安装完成后，打开cmd窗口，运行下列第一行命令，下面出现版本号，那么代表安装成功了：</p>
+                    <pre><code class="shell script">node -v
+v10.12.0
+</code></pre>
+                    <h3><a href="#安装gitbook" id="安装gitbook">安装Gitbook</a></h3>
+                    <p><font color=red>注意事项：请关掉您电脑中的安全软件，否则可能命令失败！</font></p>
+                    <p>输入下面的命令来安装 GitBook：</p>
+                    <pre><code class="shell script">npm install gitbook-cli -g
+</code></pre>
+                    <p>安装成功后检验下是否成功，显示版本代表成功：</p>
+                    <pre><code class="shell script">gitbook -v
+CLI version: 2.3.2
+GitBook version: 3.2.3
+</code></pre>
+                    <h3><a href="#gitbook初始化" id="gitbook初始化">Gitbook初始化</a></h3>
+                    <p>在你的磁盘下创建一个空的文件夹，然后打开在该目录下打开cmd【shift+鼠标右键，选择命令窗口】，运行下列命令：</p>
+                    <pre><code class="shell script">gitbook init
+</code></pre>
+                    <p>然后你会看到多了两个文件：</p>
+                    <blockquote>
+                        <p>README.md<br>SUMMARY.md</p>
+                    </blockquote>
+                    <p>他们分别是“首页”和“目录”，“首页”就不多介绍了，“目录”我后面会介绍怎么使用~</p>
+                    <p>这时候你可以输入命令运行下：</p>
+                    <pre><code class="shell script">gitbook serve
+</code></pre>
+                    <p>出现下面信息代表成功：</p>
+                    <pre><code class="shell script">Starting server ...
+Serving book on http://localhost:4000
+</code></pre>
+                    <p>你可以在浏览器中输入localhost:4000，即可看到gitbook页面了~</p>
+                    <p>是不是很简单呢~</p>
+                    <p>接下面我会给你们更详细的gitbook配置~</p>
+                    <h3><a href="#详细配置" id="详细配置">详细配置</a></h3>
+                    <p>现在你的文件夹里只有两个md文件和一个_book文件夹，其中_book文件夹是你运行命令后生成的空文件夹，这里面是存放部署后的静态页面的。</p>
+                    <p>下面你需要创建一下文件夹和文件：</p>
+                    <p><img src="/statics/images/screenshot/Snipaste_2019-11-20_22-39-21.png" alt="" /></p>
+                    <p>虽然images和screenshot都是存图片的，可以只要一个，但是为了防止往后写博客容易把网站图标二维码和截图搞得太混，我们应该尽量把文件夹细分~</p>
+                    <p>而books文件夹里的书籍分级我建议大家也把文章归类，每个文章都有自己的文件夹，并且每个文件夹下都有一个README.md文件，这个md文件之后在目录文件中起到很方便的作用~</p>
+                    <p><img src="/statics/images/screenshot/Snipaste_2019-11-20_22-50-11.png" alt="" /></p>
+                    <h4><a href="#bookjson" id="bookjson">book.json</a></h4>
+                    <p>下面是我的配置：</p>
+                    <pre><code class="json">{
+    &quot;title&quot;: &quot;Tmiracle的博客文档&quot;,
+    &quot;description&quot;: &quot;Tmiracle's Blog Docs&quot;,
+    &quot;author&quot;: &quot;Tmiracle&quot;,
+    &quot;output.name&quot;: &quot;site&quot;,
+    &quot;language&quot;: &quot;zh-hans&quot;,
+    &quot;gitbook&quot;: &quot;3.2.3&quot;,
+    &quot;root&quot;: &quot;.&quot;,
+    &quot;plugins&quot;: [
+        &quot;donate&quot;,
+        &quot;-lunr&quot;,
+        &quot;-search&quot;,
+        &quot;-highlight&quot;,
+        &quot;-sharing&quot;,
+        &quot;sharing-plus&quot;,
+        &quot;hide-element&quot;,
+        &quot;search-pro&quot;,
+        &quot;chapter-fold&quot;,
+        &quot;github&quot;,
+        &quot;anchor-navigation-ex-toc&quot;,
+        &quot;custom-favicon&quot;,
+        &quot;insert-logo&quot;,
+        &quot;splitter&quot;,
+        &quot;code&quot;,
+        &quot;pageview-count&quot;,
+        &quot;lightbox&quot;,
+        &quot;tbfed-pagefooter&quot;,
+        &quot;prism&quot;,
+        &quot;prism-themes&quot;,
+        &quot;advanced-emoji&quot;
+    ],
+    &quot;pluginsConfig&quot;: {
+        &quot;github&quot;: {
+            &quot;url&quot;: &quot;https://github.com/ImTmiracle/ImTmiracle.github.io&quot;
+        },
+        &quot;prism&quot;: {
+            &quot;css&quot;: [
+                &quot;prism-themes/themes/prism-xonokai.css&quot;
+            ]
+        },
+        &quot;anchor-navigation-ex-toc&quot;: {
+            &quot;showLevel&quot;: true,
+            &quot;associatedWithSummary&quot;: true,
+            &quot;printLog&quot;: false,
+            &quot;multipleH1&quot;: false,
+            &quot;mode&quot;: &quot;float&quot;,
+            &quot;showGoTop&quot;: true,
+            &quot;float&quot;: {
+                &quot;floatIcon&quot;: &quot;fa fa-navicon&quot;,
+                &quot;showLevelIcon&quot;: true,
+                &quot;level1Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+                &quot;level2Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+                &quot;level3Icon&quot;: &quot;fa fa-hand-o-right&quot;
+            },
+            &quot;pageTop&quot;: {
+                &quot;showLevelIcon&quot;: true,
+                &quot;level1Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+                &quot;level2Icon&quot;: &quot;fa fa-hand-o-right&quot;,
+                &quot;level3Icon&quot;: &quot;fa fa-hand-o-right&quot;
+            }
+        },
+        &quot;hide-element&quot;: {
+            &quot;elements&quot;: [
+                &quot;.gitbook-link&quot;
+            ]
+        },
+        &quot;favicon&quot;: &quot;icon/favicon.ico&quot;,
+        &quot;tbfed-pagefooter&quot;: {
+            &quot;copyright&quot;: &quot;copyright &amp;copy Tmiracle&quot;,
+            &quot;modify_label&quot;: &quot;该文件最后修改时间：&quot;,
+            &quot;modify_format&quot;: &quot;YYYY-MM-DD HH:mm:ss&quot;
+        },
+        &quot;insert-logo&quot;: {
+            &quot;url&quot;: &quot;/icon/logo.png&quot;,
+            &quot;style&quot;: &quot;background: none; max-height: 90px; min-height: 90px&quot;
+        },
+        &quot;donate&quot;: {
+            &quot;wechat&quot;: &quot;&quot;,
+            &quot;alipay&quot;: &quot;&quot;,
+            &quot;title&quot;: &quot;&quot;,
+            &quot;button&quot;: &quot;赏&quot;,
+            &quot;alipayText&quot;: &quot;给口饭吃吧~~~&quot;,
+            &quot;wechatText&quot;: &quot;微信支付&quot;
+        },
+        &quot;sharing&quot;: {
+            &quot;douban&quot;: false,
+            &quot;facebook&quot;: false,
+            &quot;google&quot;: false,
+            &quot;hatenaBookmark&quot;: false,
+            &quot;instapaper&quot;: false,
+            &quot;line&quot;: false,
+            &quot;linkedin&quot;: false,
+            &quot;messenger&quot;: false,
+            &quot;pocket&quot;: false,
+            &quot;qq&quot;: true,
+            &quot;qzone&quot;: true,
+            &quot;stumbleupon&quot;: false,
+            &quot;twitter&quot;: false,
+            &quot;viber&quot;: false,
+            &quot;vk&quot;: false,
+            &quot;weibo&quot;: true,
+            &quot;whatsapp&quot;: false,
+            &quot;all&quot;: [
+                &quot;facebook&quot;,
+                &quot;google&quot;,
+                &quot;twitter&quot;,
+                &quot;instapaper&quot;,
+                &quot;linkedin&quot;,
+                &quot;pocket&quot;,
+                &quot;stumbleupon&quot;
+            ]
+        }
+    }
+}
+</code></pre>
+                    <p><a href="/article/gitbook-detailed-config.html"><font color=red>点我查看book.json详细解析</font></a></p>
+                    <h4><a href="#summarymd文件" id="summarymd文件">Summary.md文件</a></h4>
+                    <p>概要文件主要存放 GitBook 的文件目录信息，左侧的目录就是根据这个文件来生成的，可以在 book.json 重新定义该文件的对应值。它通过 Markdown 中的列表语法来表示文件的父子关系，下面是一个简单的示例：</p>
+                    <pre><code class="text"> # Summary
+ * [Introduction](README.md)
+ * [Part I](part1/README.md)
+     * [Writing is nice](part1/writing.md)
+     * [GitBook is nice](part1/gitbook.md)
+ * [Part II](part2/README.md)
+     * [We love feedback](part2/feedback_please.md)
+     * [Better tools for authors](part2/better_tools.md)
+</code></pre>
+                    <p>这个配置对应的目录结构如下所示：</p>
+                    <p><img src="/statics/images/screenshot/summary1.png" alt="" /></p>
+                    <p>我们通过使用 标题 或者 水平分割线 标志将 GitBook 分为几个不同的部分：</p>
+                    <pre><code class="text"> # Summary
+
+ ### Part I
+
+ * [Introduction](README.md)
+ * [Writing is nice](part1/writing.md)
+ * [GitBook is nice](part1/gitbook.md)
+
+ ### Part II
+
+ * [We love feedback](part2/feedback_please.md)
+ * [Better tools for authors](part2/better_tools.md)
+
+ ----
+
+ * [Last part without title](part3/title.md)
+</code></pre>
+                    <p>这个配置对应的目录结构如下所示：</p>
+                    <p><img src="/statics/images/screenshot/summary2.png" alt="" /></p>
+                    <h2><a href="#gitbook部署到github-page" id="gitbook部署到github-page">Gitbook部署到github page</a></h2>
+                    <p>首先打开你们的github，新建一个仓库，名字别搞错了，必须是：</p>
+                    <blockquote>
+                        <p>&lt;你的账户名&gt;.github.io</p>
+                    </blockquote>
+                    <p>比如我的是：ImTmiracle.github.io</p>
+                    <p>创建完毕后，在页面找到<em>Clone or download</em>按钮，复制URL仓库链接。</p>
+                    <p>接下来回到我们的Gitbook文件夹，因为我们运行过“gitbook serve”命令了，所以在_book文件夹里会生成我们接下来的所需要部署的静态网页文件。</p>
+                    <p>先在本地磁盘随意一个位置，新建一个随意名字的文件夹（以下统称A文件夹），之后用git命令初始化：（ <a href="/article/git-command.html">点我了解git命令</a> ）</p>
+                    <pre><code class="shell script">git init
+</code></pre>
+                    <p>再把_book下的文件全部拷贝到这个文件夹，继续依次运行git命令：</p>
+                    <pre><code class="shell script">git add .
+git commit -m&quot;你要提交的信息&quot;
+git remote add [随便取个别名] [刚刚复制的URL]
+git push -u [上面取的别名] master
+</code></pre>
+                    <p>如果没有报错，基本算是部署上去了，接下来你可以在浏览器输入：</p>
+                    <blockquote>
+                        <p>&lt;你的账户名&gt;.github.io</p>
+                    </blockquote>
+                    <p>就可以浏览gitbook了。</p>
+                    <h2><a href="#更新gitbook" id="更新gitbook">更新Gitbook</a></h2>
+                    <p>之后如果要更新Gitbook已经很简单了，就是不断的重复下面步骤：</p>
+                    <ol>
+                        <li>
+                            <p>A文件夹除.git之外的文件全部删掉</p>
+                        </li>
+                        <li>
+                            <p>去Gitbook文件夹下运行gitbook serve后复制_book里的文件</p>
+                        </li>
+                        <li>
+                            <p>粘贴到A文件夹</p>
+                        </li>
+                        <li>
+                            <p>运行下列命令：</p>
+                            <pre><code class="shell script">git add .
+git commit -m &quot;信息&quot;
+git pull [别名] master
+git push -u [别名] master
+</code></pre>
+                        </li>
+                    </ol>
+
+
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>

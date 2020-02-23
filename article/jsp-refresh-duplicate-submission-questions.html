@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1><a href="#解决刷新jsp页面重复提交数据的问题" id="解决刷新jsp页面重复提交数据的问题">解决刷新jsp页面重复提交数据的问题</a></h1>
+                    <p class="article-info">该文章创建于2019-5-10，最后修改于2019-5-10</p>
+                    <p>假如我们需要使用 controller层的 addsave方法向 worklist页面传递参数，jsp 页面接收参数的方式如下：</p>
+                    <pre><code class="html">&lt;span style=&quot;color: red&quot;&gt;${info}&lt;/span&gt;
+</code></pre>
+                    <p>controller层代码：</p>
+                    <pre><code class="java">@RequestMapping(value = &quot;addsave&quot;)
+public String addsave(Workorder workorder, Model model) {
+    workorder.setCreateDate(new Date());
+    if (workorderService.add(workorder)) {
+        model.addAttribute(&quot;info&quot;, &quot;保存成功&quot;); //提示信息的传值
+    }
+    model.addAttribute(&quot;workorder&quot;, workorderService.getWorkorderList()); //获取列表的传值
+    return &quot;worklist&quot;;
+}
+</code></pre>
+                    <p>然后我们运行：</p>
+                    <p><img src="/statics/images/screenshot/1556214394471.png" alt="" /></p>
+                    <p>看起来似乎没有问题，但是我们刷新下这个页面再看看：</p>
+                    <p><img src="/statics/images/screenshot/1556214443695.png" alt="" /></p>
+                    <p>我们发现页面又重复提交了一遍数据，那么如何解决这个问题呢？</p>
+                    <p>下面，我们先将 controller层的代码修改一下：</p>
+                    <pre><code class="java">@RequestMapping(value = &quot;addsave&quot;)
+public String addsave(Workorder workorder, Model model) {
+    workorder.setCreateDate(new Date());
+    if (workorderService.add(workorder))
+        model.addAttribute(&quot;info&quot;, &quot;保存成功&quot;);  //提示信息的传值
+    return &quot;redirect:worklist&quot;;
+}
+
+@RequestMapping(&quot;worklist&quot;)
+public String worklist(Model model) {
+    model.addAttribute(&quot;workorder&quot;, workorderService.getWorkorderList());  //获取列表的传值
+    return &quot;worklist&quot;;
+}
+</code></pre>
+                    <p>这里我们直接加了一个方法，用来返回 worklist页面，我们再运行一下看看效果：</p>
+                    <p><img src="/statics/images/screenshot/1556214976898.png" alt="" /></p>
+                    <p>可以发现我们添加列表成功，刷新页面也不会重复传值，但是 info的参数<strong>保存成功</strong>并没有在页面显示，同理 Model换成 HttpServletRequest形参也是不行的（亲测无效）。</p>
+                    <p>那么我们应该怎么解决 info传递问题呢？</p>
+                    <p>答： 使用 <strong>RedirectAttributes</strong>形参</p>
+                    <pre><code class="java">@RequestMapping(value = &quot;addsave&quot;)
+public String addsave(Workorder workorder, RedirectAttributes redirectAttributes) {
+    workorder.setCreateDate(new Date());
+    if (workorderService.add(workorder))
+    	redirectAttributes.addFlashAttribute(&quot;info&quot;, &quot;保存成功&quot;);  //提示信息的传值
+    return &quot;redirect:worklist&quot;;
+}
+
+@RequestMapping(&quot;worklist&quot;)
+public String worklist(Model model) {
+    model.addAttribute(&quot;workorder&quot;, workorderService.getWorkorderList());  //获取列表的传值
+    return &quot;worklist&quot;;
+}
+</code></pre>
+                    <p>再次运行页面：</p>
+                    <p><img src="/statics/images/screenshot/1556215410372.png" alt="" /></p>
+                    <p>传值成功！同时，刷新页面info的值<strong>保存成功</strong>也会消失。</p>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>

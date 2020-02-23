@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1><a href="#git常用命令" id="git常用命令">Git常用命令</a></h1>
+                    <p class="article-info">该文章创建于2020-6-25，最后修改于2020-2-23</p>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th align="left"> 命令行</th>
+                            <th align="left"> 含义</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td align="left"> git config [--global] user.name &quot;xxx&quot;<br/>git config [--global]
+                                user.email xxx@xxx.com</td>
+                            <td align="left"> 创建【公共的】用户名和邮箱</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git init</td>
+                            <td align="left"> 初始化本地仓库</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git add .</td>
+                            <td align="left"> 将文件全部添加到暂存区</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git commit -m &quot;xxx&quot;</td>
+                            <td align="left"> 提交文件，并添加xxx描述信息</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git clone [URL] [xxx]</td>
+                            <td align="left"> 从远程仓库URL复制文件到xxx目录下</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git remote add [name] [URL]</td>
+                            <td align="left"> 给远程仓库URL起一个名字并以键值对保存</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git remote show [name]</td>
+                            <td align="left"> 查看该名字对应的远程仓库URL</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git remote rm [name]</td>
+                            <td align="left"> 删除改名字对应的远程仓库URL</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git remote rename [name] [new-name]</td>
+                            <td align="left"> 重命名远程仓库的名字</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git remote -v</td>
+                            <td align="left"> 查看所有的名字以及对应的远程仓库URL</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git status</td>
+                            <td align="left"> 查看状态</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git log</td>
+                            <td align="left"> 查看提交历史</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git fetch [name]</td>
+                            <td align="left"> 从名字对应的远程仓库拉取你没有的数据</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git pull</td>
+                            <td align="left"> 将数据合并</td>
+                        </tr>
+                        <tr>
+                            <td align="left"> git push -u [name] [branch]</td>
+                            <td align="left"> 把本地数据推送到名字对应的远程仓库的分支</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p>Git分支图：
+                        <img src="/statics/images/screenshot/Git分支表.png"
+                             alt=""/></p>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_8i84mlb1cv8.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1><a href="#springmvc的redirectattributes传递参数值的方法以及el表达式无法获取参数值的原因" id="springmvc的redirectattributes传递参数值的方法以及el表达式无法获取参数值的原因">SpringMVC的RedirectAttributes传递参数值的方法以及EL表达式无法获取参数值的原因</a></h1>
+                    <p class="article-info">该文章创建于2019-5-5，最后修改于2019-5-5</p>
+                    <p><strong>SpringMVC中使用 RedirectAttributes 从一个controller重定向传值（参数）到另一个controller的方法：</strong></p>
+                    <p><strong>介绍：RedirectAttributes是Spring mvc 3.1版本之后出来的一个功能，专门用于重定向之后还能带参数跳转的。</strong></p>
+                    <p>他有两种带参的方式：</p>
+                    <p>第一种：
+                        attr.addAttribute(&quot;param&quot;, value);
+                        这种方式就相当于重定向之后，在url后面拼接参数，这样在重定向之后的页面或者控制器再去获取url后面的参数就可以了，但这个方式因为是在url后面添加参数的方式，所以暴露了参数，有风险。</p>
+                    <pre><code class="java">attr.addAttribute(&quot;param1&quot;, &quot;value1&quot;);
+return &quot;redirect:/index&quot;;
+</code></pre>
+                    <p>这样就相当于：return &quot;redirect:/index?param1=value1&quot;</p>
+                    <p>第二种：
+                        attr.addFlashAttribute(&quot;param&quot;, value);
+                        这种方式也能达到重新向带参，而且能隐藏参数，其原理就是放到session中，session在跳到页面后马上移除对象，所以你刷新一下后这个值就会丢掉，这个方法适合用于防止刷新页面重复提交数据的问题。</p>
+                    <p><strong>具体使用方法：</strong></p>
+                    <p>controller：</p>
+                    <pre><code class="java">@RequestMapping({&quot;/&quot;,&quot;/index&quot;})
+public String login() {
+    return &quot;Login&quot;;
+}
+@RequestMapping(&quot;info&quot;)
+public String info(HttpSession session, RedirectAttributes attributes) {
+    if (session.getAttribute(&quot;UserSession&quot;) != null)
+        return &quot;infoShow&quot;;
+    attributes.addFlashAttribute(&quot;info&quot;,
+            &quot;&lt;script type='text/javascript'&gt;alert('请登录账户！')&lt;/script&gt;&quot;);
+    return &quot;redirect:index&quot;;
+}
+</code></pre>
+                    <p>jsp页面：</p>
+                    <pre><code class="html">&lt;div&gt;${info}&lt;/div&gt;
+</code></pre>
+                    <p>这种方法传递的参数是可以被EL表达式获取的。</p>
+                    <p><strong><font color=red>EL表达式无法获取传值的原因：</font></strong></p>
+                    <ol>
+                        <li>
+                            <p><font color="FF0088">请检查你的“redirect:”的冒号后面有没有空格！这个问题会导致你的EL表达式无法获取你的传值！切记！不要加空格！不要加空格！不要加空格！重要的事情说三遍！</font></p>
+                        </li>
+                        <li>
+                            <p>网络上还有种说法，说是因为接收参数值的 controller 没有加上@ModelAttribute的形参，导致无法接收，具体本人也没有出现过这问题，不是很清楚。</p>
+                        </li>
+                    </ol>
+
+
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>

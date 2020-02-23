@@ -65,6 +65,8 @@ function GenerateContentList() {
     var aTag = $('a[href*="#"]');
     for (let i = 0; i < aTag.length; i++) {
         let text = aTag[i].innerHTML;
+        text = text.replace('&lt;', '<');
+        text = text.replace('&gt;', '>');
         aTag[i].after(text);
         aTag[i].remove();
     }
@@ -97,7 +99,7 @@ function GenerateToc() {
         toc.tocify({
             context: 'main',
             selectors: 'h2,h3,h4',
-            scrollTo: 60,
+            scrollTo: $('article h1')[0].offsetHeight + 30,
             showAndHide: true,
             smoothScroll: true,
             history: false
