@@ -329,19 +329,16 @@ body {
         margin: auto;
         padding: 0 30px; }
         body .pjax-container .content-box ul li {
-          list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
-          margin-top: 10px;
-          margin-left: 20px; }
-          body .pjax-container .content-box ul li:hover {
-            list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="darkorange"></path></svg>'); }
-            body .pjax-container .content-box ul li:hover p span {
-              background-color: #aa5c00; }
-            body .pjax-container .content-box ul li:hover p a {
-              color: darkorange;
-              background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
-              background-size: 20px auto;
-              text-decoration: none !important;
-              animation: waveMove 1s infinite linear; }
+          list-style: none;
+          margin-top: 10px; }
+          body .pjax-container .content-box ul li:hover p span {
+            background-color: #aa5c00; }
+          body .pjax-container .content-box ul li:hover p a {
+            color: darkorange;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
+            background-size: 20px auto;
+            text-decoration: none !important;
+            animation: waveMove 1s infinite linear; }
           body .pjax-container .content-box ul li p {
             display: flex;
             margin: 0;
@@ -519,13 +516,12 @@ body {
           padding: 0;
           display: flex;
           flex-wrap: wrap;
-          justify-content: flex-start;
+          justify-content: space-around;
           list-style: none; }
           body .pjax-container aside .fixed-box ul.tag li {
             background-color: #990055;
             border-radius: 4px;
             padding: 0 5px;
-            margin-right: 12px;
             margin-top: 8px; }
             body .pjax-container aside .fixed-box ul.tag li:hover {
               transition: .5s;

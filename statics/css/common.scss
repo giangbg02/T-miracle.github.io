@@ -505,12 +505,13 @@ body {
                 padding: 0 30px;
 
                 li {
-                    list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
+                    //list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
+                    list-style: none;
                     margin-top: 10px;
-                    margin-left: 20px;
+                    //margin-left: 20px;
 
                     &:hover {
-                        list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="darkorange"></path></svg>');
+                        //list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="darkorange"></path></svg>');
 
                         p {
                             span {
@@ -806,14 +807,13 @@ body {
                     padding: 0;
                     display: flex;
                     flex-wrap: wrap;
-                    justify-content: flex-start;
+                    justify-content: space-around;
                     list-style: none;
 
                     li {
                         background-color: #990055;
                         border-radius: 4px;
                         padding: 0 5px;
-                        margin-right: 12px;
                         margin-top: 8px;
 
                         &:hover {
