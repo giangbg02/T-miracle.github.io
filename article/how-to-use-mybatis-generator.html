@@ -216,9 +216,9 @@
                     </table>
                     <h2><a href="#方法应用举例" id="方法应用举例">方法应用举例：</a></h2>
                     <pre><code class="java">XxxExample xxxExample = new xxxExample();
-XxxExample.setOrderByClause(“uid DESC”);
+XxxExample.setOrderByClause("uid DESC");
 Criteria criteria = new Example().createCriteria();
-criteria.andNameEqualTo('Tmiracle');
+criteria.andNameEqualTo("Tmiracle");
 List&lt;Xxx&gt; list = XxxMapper.selectByExample(xxxExample);
 </code></pre>
                     <p><strong>list得到的值相当于：</strong></p>

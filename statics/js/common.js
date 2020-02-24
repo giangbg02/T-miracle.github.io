@@ -27,14 +27,14 @@ window.onpopstate = function () {
 };
 
 function GenerateContentList() {
-//弹出侧边目录
+    //弹出侧边目录
     $(".aside-btn").on("click", function () {
         $(".aside-btn").toggleClass("active");
         $("main").toggleClass("active");
         $("aside").toggleClass("active");
     });
 
-// 判断页面是否含有gitalk容器，如果有，则加载gitalk评论系统
+    // 判断页面是否含有gitalk容器，如果有，则加载gitalk评论系统
     if ($('#gitalk-container').length > 0) {
         var gitalk = new Gitalk({
             clientID: '7ff38d8c3509efdcee12',   // GitHub Application Client ID
@@ -47,7 +47,7 @@ function GenerateContentList() {
         gitalk.render('gitalk-container');      // 渲染Gitalk评论组件
     }
 
-// 未完成文章点击提示信息
+    // 未完成文章点击提示信息
     $('.tip').click(function () {
         top.layer.msg(
             '<svg style="width: 36px;height: 36px" class="icon" aria-hidden="true"><use xlink:href="#icon-biji"></use></svg>文章正在努力编写中...',
@@ -58,7 +58,7 @@ function GenerateContentList() {
             })
     });
 
-//外链网址设置新标签打开
+    //外链网址设置新标签打开
     $('a[href*="http"]').attr("target", "_blank");
 
     //删除文章h1,h2,h3里的a标签
