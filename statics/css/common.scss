@@ -507,7 +507,7 @@ body {
                 li {
                     //list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
                     list-style: none;
-                    margin-top: 10px;
+                    margin-top: 15px;
                     //margin-left: 20px;
 
                     &:hover {
@@ -807,14 +807,14 @@ body {
                     padding: 0;
                     display: flex;
                     flex-wrap: wrap;
-                    justify-content: space-around;
+                    justify-content: flex-start;
                     list-style: none;
 
                     li {
                         background-color: #990055;
                         border-radius: 4px;
                         padding: 0 5px;
-                        margin-top: 8px;
+                        margin: 6px 5px 0;
 
                         &:hover {
                             transition: .5s;
