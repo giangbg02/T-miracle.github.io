@@ -266,6 +266,51 @@ body {
         background-color: transparent;
         border: 0 transparent;
         border-top: 1px solid dimgrey; }
+      body .pjax-container .content-box .classify {
+        margin: 0;
+        padding: 1px 15px;
+        width: 100%;
+        height: auto; }
+        body .pjax-container .content-box .classify > h3 {
+          letter-spacing: 6px;
+          color: #ff6400;
+          padding: 15px 0;
+          font-weight: normal;
+          border-bottom: #d8ffb9 1px solid; }
+        body .pjax-container .content-box .classify > .flex-box {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start; }
+          body .pjax-container .content-box .classify > .flex-box > a {
+            margin: 6px;
+            padding-right: 15px;
+            width: calc(100% - 6px * 2);
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: whitesmoke;
+            text-decoration: none;
+            border-left: greenyellow 5px solid; }
+            body .pjax-container .content-box .classify > .flex-box > a:hover {
+              box-shadow: #C4E538 0 0 10px;
+              transform: scale(1.01); }
+            body .pjax-container .content-box .classify > .flex-box > a img, body .pjax-container .content-box .classify > .flex-box > a svg {
+              padding: 8px;
+              width: 50px;
+              height: 50px;
+              float: left;
+              margin: 0 10px 0 0; }
+            body .pjax-container .content-box .classify > .flex-box > a p {
+              height: 25px;
+              line-height: 25px;
+              margin: 0;
+              padding: 0;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden; }
+            body .pjax-container .content-box .classify > .flex-box > a:after {
+              content: '';
+              display: block;
+              clear: both; }
       body .pjax-container .content-box .friend-links, body .pjax-container .content-box .leave-comments {
         float: left;
         margin: 0;
@@ -587,7 +632,9 @@ body {
     body .pjax-container aside {
       right: calc(100% / 2 - 970px / 2); }
       body .pjax-container aside .fixed-box {
-        margin-top: 60px; } }
+        margin-top: 60px; }
+    body .pjax-container .content-box .classify .flex-box > a {
+      width: calc((100% - 6px * 4) / 2); } }
 @media (min-width: 1200px) {
   body .pjax-container {
     width: 1170px; }

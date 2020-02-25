@@ -417,6 +417,67 @@ body {
                 border-top: 1px solid dimgrey;
             }
 
+            .classify {
+                margin: 0;
+                padding: 1px 15px;
+                width: 100%;
+                height: auto;
+
+                > h3 {
+                    letter-spacing: 6px;
+                    color: #ff6400;
+                    padding: 15px 0;
+                    font-weight: normal;
+                    border-bottom: #d8ffb9 1px solid;
+                }
+
+                > .flex-box {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+
+                    > a {
+                        margin: 6px;
+                        padding-right: 15px;
+                        width: calc(100% - 6px * 2);
+                        height: 50px;
+                        background-color: rgba(255, 255, 255, 0.2);
+                        color: whitesmoke;
+                        text-decoration: none;
+                        border-left: greenyellow 5px solid;
+
+                        &:hover {
+                            box-shadow: #C4E538 0 0 10px;
+                            transform: scale(1.01);
+                        }
+
+                        img, svg {
+                            padding: 8px;
+                            width: 50px;
+                            height: 50px;
+                            float: left;
+                            margin: 0 10px 0 0;
+                        }
+
+                        p {
+                            height: 25px;
+                            line-height: 25px;
+                            margin: 0;
+                            padding: 0;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            clear: both;
+                        }
+                    }
+                }
+            }
+
             .friend-links, .leave-comments {
                 float: left;
                 margin: 0;
@@ -956,6 +1017,16 @@ body {
 
                 .fixed-box {
                     margin-top: 60px;
+                }
+            }
+
+            .content-box {
+                .classify {
+                    .flex-box {
+                        > a {
+                            width: calc((100% - 6px * 4) / 2);
+                        }
+                    }
                 }
             }
         }
