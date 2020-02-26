@@ -338,7 +338,7 @@ body {
             section {
                 float: left;
                 width: 100%;
-                padding: 10px 30px;
+                padding: 10px;
                 //background-color: rgba(228, 228, 228, 0.5);
 
                 > div {
@@ -362,31 +362,39 @@ body {
                 }
 
                 ul {
-                    padding-left: 10px;
+                    padding-left: 0;
 
                     li {
-                        list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
+                        position: relative;
+                        list-style: none;
                         margin-top: 20px;
+                        width: 100%;
+                        height: auto;
+                        background-color: rgba(169, 169, 169, 0.25);
+                        border-left: 5px solid greenyellow;
 
-                        &:hover {
-                            list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="darkorange"></path></svg>');
-
-                            a {
-                                border-bottom: 0;
-                                padding-bottom: 3px;
-                                color: darkorange;
-                                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
-                                background-size: 20px auto;
-                                text-decoration: none !important;
-                                animation: waveMove 1s infinite linear;
-                            }
+                        > span {
+                            position: absolute;
+                            top: -6px;
+                            right: 8px;
+                            background-color: rgb(88, 0, 255);
+                            padding: 0 4px;
+                            border-radius: 4px;
+                            font-size: smaller;
                         }
 
-                        a {
+                        &:hover {
+                            transform: scale(1.02);
+                            box-shadow: #C4E538 0 0 10px;
+                        }
+
+                        > a {
+                            display: block;
+                            padding: 6px 12px;
                             max-width: 100%;
-                            font-size: 1.1em;
-                            color: greenyellow;
+                            color: whitesmoke;
                             text-decoration: none;
+                            cursor: pointer;
 
                             @keyframes waveMove {
                                 0% {
@@ -441,7 +449,7 @@ body {
                         padding-right: 15px;
                         width: calc(100% - 6px * 2);
                         height: 50px;
-                        background-color: rgba(255, 255, 255, 0.2);
+                        background-color: rgba(169, 169, 169, 0.25);
                         color: whitesmoke;
                         text-decoration: none;
                         border-left: greenyellow 5px solid;
@@ -738,7 +746,7 @@ body {
                             }
 
                             .black {
-                                background: greenyellow;
+                                background: #ffffff;
                             }
 
                             .img-box {
@@ -922,6 +930,18 @@ body {
                         &:nth-child(9) {
                             background-color: #574b90
                         }
+
+                        &:nth-child(10) {
+                            background-color: #c1303a
+                        }
+
+                        &:nth-child(11) {
+                            background-color: #7d3ac2
+                        }
+
+                        &:nth-child(12) {
+                            background-color: #3bbf3f
+                        }
                     }
                 }
             }
@@ -932,7 +952,7 @@ body {
         }
 
         .tip {
-            color: darkgrey !important;
+            color: rgba(164, 164, 164, 0.51) !important;
         }
     }
 
@@ -965,6 +985,7 @@ body {
 
                 section {
                     width: 50%;
+                    padding: 10px 30px;
                 }
             }
 
@@ -1004,7 +1025,7 @@ body {
                 width: 730px;
 
                 section {
-                    padding-top: 60px;
+                    padding-top: 30px;
                 }
             }
 
@@ -1052,4 +1073,21 @@ body {
 /*layer弹层*/
 .layer-skin {
     background-color: #303952 !important;
+}
+
+/*返回顶部按钮*/
+.to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transition: .6s .4s;
+}
+
+.to-top {
+    width: 65px;
+    height: 90px;
+    background-image: url("https://s1.hdslb.com/bfs/static/jinkela/space/asserts/space-to-top.png");
+    background-position: -40px -44px;
+    transition: .4s steps(6, start);
 }

@@ -214,7 +214,7 @@ body {
       body .pjax-container main section {
         float: left;
         width: 100%;
-        padding: 10px 30px; }
+        padding: 10px; }
         body .pjax-container main section > div {
           position: relative;
           padding: 5px;
@@ -232,25 +232,33 @@ body {
             letter-spacing: 0;
             font-size: 0.4em; }
         body .pjax-container main section ul {
-          padding-left: 10px; }
+          padding-left: 0; }
           body .pjax-container main section ul li {
-            list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="greenyellow"></path></svg>');
-            margin-top: 20px; }
+            position: relative;
+            list-style: none;
+            margin-top: 20px;
+            width: 100%;
+            height: auto;
+            background-color: rgba(169, 169, 169, 0.25);
+            border-left: 5px solid greenyellow; }
+            body .pjax-container main section ul li > span {
+              position: absolute;
+              top: -6px;
+              right: 8px;
+              background-color: #5800ff;
+              padding: 0 4px;
+              border-radius: 4px;
+              font-size: smaller; }
             body .pjax-container main section ul li:hover {
-              list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="darkorange"></path></svg>'); }
-              body .pjax-container main section ul li:hover a {
-                border-bottom: 0;
-                padding-bottom: 3px;
-                color: darkorange;
-                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='darkorange' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
-                background-size: 20px auto;
-                text-decoration: none !important;
-                animation: waveMove 1s infinite linear; }
-            body .pjax-container main section ul li a {
+              transform: scale(1.02);
+              box-shadow: #C4E538 0 0 10px; }
+            body .pjax-container main section ul li > a {
+              display: block;
+              padding: 6px 12px;
               max-width: 100%;
-              font-size: 1.1em;
-              color: greenyellow;
-              text-decoration: none; }
+              color: whitesmoke;
+              text-decoration: none;
+              cursor: pointer; }
 @keyframes waveMove {
   0% {
     background-position: 0 100%; }
@@ -286,7 +294,7 @@ body {
             padding-right: 15px;
             width: calc(100% - 6px * 2);
             height: 50px;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(169, 169, 169, 0.25);
             color: whitesmoke;
             text-decoration: none;
             border-left: greenyellow 5px solid; }
@@ -477,7 +485,7 @@ body {
             body .pjax-container aside .fixed-box .head-portrait:hover .logo .square {
               background: #222738; }
             body .pjax-container aside .fixed-box .head-portrait:hover .logo .black {
-              background: greenyellow; }
+              background: #ffffff; }
             body .pjax-container aside .fixed-box .head-portrait:hover .logo .img-box {
               transform: scale(0.3); }
               body .pjax-container aside .fixed-box .head-portrait:hover .logo .img-box img {
@@ -592,10 +600,16 @@ body {
               background-color: #e15f41; }
             body .pjax-container aside .fixed-box ul.tag li:nth-child(9) {
               background-color: #574b90; }
+            body .pjax-container aside .fixed-box ul.tag li:nth-child(10) {
+              background-color: #c1303a; }
+            body .pjax-container aside .fixed-box ul.tag li:nth-child(11) {
+              background-color: #7d3ac2; }
+            body .pjax-container aside .fixed-box ul.tag li:nth-child(12) {
+              background-color: #3bbf3f; }
     body .pjax-container aside.active {
       right: 0; }
     body .pjax-container .tip {
-      color: darkgrey !important; }
+      color: rgba(164, 164, 164, 0.51) !important; }
   body #gitalk-container {
     opacity: 0.8; }
 
@@ -609,7 +623,8 @@ body {
     body .pjax-container main {
       width: 100%; }
       body .pjax-container main section {
-        width: 50%; }
+        width: 50%;
+        padding: 10px 30px; }
     body .pjax-container main.active {
       right: calc(100vw / 2 - 750px / 2 + 240px); }
     body .pjax-container aside.active {
@@ -626,7 +641,7 @@ body {
     body .pjax-container main {
       width: 730px; }
       body .pjax-container main section {
-        padding-top: 60px; }
+        padding-top: 30px; }
     body .pjax-container .aside-btn {
       display: none; }
     body .pjax-container aside {
@@ -645,5 +660,20 @@ body {
 /*layer弹层*/
 .layer-skin {
   background-color: #303952 !important; }
+
+/*返回顶部按钮*/
+.to-top-btn {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transition: .6s .4s; }
+
+.to-top {
+  width: 65px;
+  height: 90px;
+  background-image: url("https://s1.hdslb.com/bfs/static/jinkela/space/asserts/space-to-top.png");
+  background-position: -40px -44px;
+  transition: 0.4s steps(6, start); }
 
 /*# sourceMappingURL=common.css.map */

@@ -1,6 +1,30 @@
 $(function () {
     GenerateContentList();
     GenerateToc();
+
+    //返回顶部
+    var topbtn = document.querySelector('.to-top-btn');
+    var topbtn1 = document.querySelector('.to-top');
+
+    topbtn.addEventListener('click', function () {
+        topbtn.style.transform = 'translateY(-120vh)';
+        topbtn1.style.backgroundPositionX = '-897px';
+        setTimeout(function () {
+            $("html,body").animate({scrollTop:"0"},500);
+            topbtn.style.transform = 'translateY(0)';
+            topbtn1.style.backgroundPositionX = '-40px';
+        }, 1000);
+    });
+
+    //监听滚动条
+    $(document).scroll(function () {
+        var scroH = document.body.scrollTop || document.documentElement.scrollTop;  //滚动高度
+        if (scroH > 160) {
+            topbtn.style.display = 'block'
+        } else {
+            topbtn.style.display = 'none'
+        }
+    });
 });
 
 //pjax异步加载页面
