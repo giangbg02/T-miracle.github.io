@@ -188,6 +188,7 @@ body {
                 ul {
                     list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="tomato"></path></svg>');
                     color: tomato;
+                    line-height: 24px;
 
                     li {
                         > p:not(:first-child) {

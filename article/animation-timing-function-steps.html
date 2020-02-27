@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_2kaxx7lhzwt.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <link rel="stylesheet" href="/statics/css/steps.css">
+                    <h1><a href="#css动画使用steps函数实现逐帧动画" id="css动画使用steps函数实现逐帧动画">CSS动画使用steps函数实现逐帧动画</a></h1>
+                    <p class="article-info">该文章创建于2020-2-27，最后修改于2020-2-27</p>
+                    <h2><a href="#steps函数是什么" id="steps函数是什么">steps函数是什么</a></h2>
+                    <p>想必各位做网页动画过渡效果的时候，应该少不了使用animation属性，animation属性是如此的令人着迷，使得我们能将网页做出各种有逼格的动画效果。</p>
+                    <p>当我们要指定动画如何完成一个周期时，animation-timing-function属性就派上了用场。</p>
+                    <p>这个属性在W3C中，给定了常用的几个速度曲线值和一个函数（立方贝塞尔曲线函数），但是我翻阅MDN时，却发现还有另一个函数 --- 阶梯函数。</p>
+                    <p>这个阶梯函数，就是本章要说的steps函数！</p>
+                    <h2><a href="#阶梯函数能做什么" id="阶梯函数能做什么">阶梯函数能做什么</a></h2>
+                    <p>这个函数到底能做什么呢，这里我们先举个例子。</p>
+                    <p>假设我们有这么一张图：</p>
+                    <p><img src="http://s1.hdslb.com/bfs/static/jinkela/space/asserts/space-to-top.png" alt="" /></p>
+                    <p>而我们可以将它将它做成这样的逐帧动画：</p>
+                    <div id="pic"></div>
+                    <h2><a href="#如何使用" id="如何使用">如何使用</a></h2>
+                    <p>steps函数允许我们将动画或者过渡分割成段，而不是从一种状态持续到另一种状态的过渡，这个函数有两个参数：</p>
+                    <blockquote>
+                        <p>steps(number_of_steps, direction)</p>
+                    </blockquote>
+                    <ul>
+                        <li>第一个参数<strong>number_of_steps</strong>，这个值是一个正整数，指定我们希望将动画分割的段数</li>
+                        <li>第二个参数<strong>direction</strong>，可选值分为<strong>start</strong>和<strong>end</strong>，默认为<strong>end</strong>，当然，也可以不选。
+                            <ul>
+                                <li>start： 表示一个左持续函数，在动画开始时，动画的第一段将会马上完成。以左侧端点为起点，立即跳到第一个step的结尾处。它会立即跳到第一段的结束并且保持这样的状态直到第一步的持续时间结束。后面的每一帧都将按照此模式来完成动画。</li>
+                                <li>end： 表示一个右持续函数。动画执行时，在每一帧里，动画保持当前状态直到这一段的持续时间完成，才会跳到下一步的起点，后面的每一帧都按照这个模式来进行，在最后一帧的起点，等到这一帧的持续时间结束，整个动画的执行也已经结束，执行动画的元素来不及跳到这一帧的终点，直接回到了整个动画起点，开始了第二次动画。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>可能这样说还不是很清晰，那我们用代码分析下：</p>
+                    <pre><code class="css">@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(160px);
+    }
+}
+
+.box:nth-child(1) {
+    animation: move 4s infinite steps(4, start);
+}
+
+.box:nth-child(2) {
+    animation: move 4s infinite steps(4, end);
+}
+</code></pre>
+                    <pre><code class="html">&lt;div class=&quot;box&quot;&gt;start&lt;/div&gt;
+&lt;div class=&quot;box&quot;&gt;end&lt;/div&gt;
+</code></pre>
+                    <div class="line">
+                        <div class="box">start</div>
+                        <div class="box">end</div>
+                    </div>
+                    <p>如上所示，我们可以发现，<strong>start</strong>会以第一阶段的尾部作为起点完成整个动画，而<strong>end</strong>则是以第一阶段的首部完成整个动画。</p>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+        <div class="to-top-btn">
+            <div class="to-top"></div>
+        </div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>

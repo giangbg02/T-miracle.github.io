@@ -1,0 +1,49 @@
+#pic {
+    height:90px;
+    width:65px;
+    background-position: -40px -44px;
+    background-image: url("//s1.hdslb.com/bfs/static/jinkela/space/asserts/space-to-top.png");
+    animation: .6s go steps(7) infinite;
+}
+@keyframes go  {
+    0% {
+        background-position-x: -40px;
+    }
+    100% {
+        background-position-x: -1040px;
+    }
+}
+.line {
+    box-sizing: content-box;
+    width: 160px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.box {
+    margin: 5px 0;
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    background-color: red;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(160px);
+    }
+}
+
+.box:nth-child(1) {
+    animation: move 4s infinite steps(4, start);
+}
+
+.box:nth-child(2) {
+    animation: move 4s infinite steps(4, end);
+}
