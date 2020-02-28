@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable='no'">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_2kaxx7lhzwt.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1><a href="#静态网站添加统计访问点击量" id="静态网站添加统计访问点击量">静态网站添加统计访问点击量</a></h1>
+                    <p class="article-info">该文章创建于2019-12-26，最后修改于2019-12-26</p>
+                    <p>一个页面如果要实现可以统计访问点击量，那么一定是需要后台数据库记录数据的</p>
+                    <p>但是大多数人的博客系统都是托管于github page或者是coding page这一类代码托管网站的，这就导致我们的博客页面都是静态页面，很显然，静态页面是不具有数据库的</p>
+                    <p>那么，我们应该是用什么来统计访问量呢？</p>
+                    <p>百度统计？谷歌统计？可能这是你立马能想到的几种解决办法，但是，这些网站统计，必须是网站被收录才能使用的，所以只能无奈地PASS掉了</p>
+                    <p>现在我给大家介绍下我使用的统计方式，emmm，顺便说一下，这个方式是我扒gitbook统计阅读量插件的源码找到的...</p>
+                    <p>方法就是这个：<a href="https://github.com/brentvollebregt/hit-counter">hit-counter</a></p>
+                    <p>这是一个开源的访问统计项目，使用方式也很简单，在你的页面公共js里加下面的代码就可以了</p>
+                    <pre><code class="javascript">let targetUrl = window.location.href;
+$.ajax('https://hitcounter.pythonanywhere.com/count', {
+    data: {url: targetUrl},
+}).then(count =&gt; $(&quot;#num&quot;).html(count));
+</code></pre>
+                    <p>它会获取你当前页面的url，异步发送给这个网址，然后返回给你统计量，你只需要在你的页面上设置一个含有<strong>id为num</strong>的元素就可以接收这个访问统计量了</p>
+                    <p>是不是很简单呢~</p>
+
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+        <div class="to-top-btn">
+            <div class="to-top"></div>
+        </div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>
