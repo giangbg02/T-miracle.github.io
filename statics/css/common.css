@@ -184,20 +184,20 @@ body {
           font-weight: bold; }
           body .pjax-container main article h2:before {
             counter-increment: h2;
-            content: counter(h2) "."; }
+            content: counter(h2) ". "; }
         body .pjax-container main article h3 {
           counter-reset: h4;
           color: #639fff;
           font-weight: bold; }
           body .pjax-container main article h3:before {
             counter-increment: h3;
-            content: counter(h2) "." counter(h3) "."; }
+            content: counter(h2) "." counter(h3) ". "; }
         body .pjax-container main article h4 {
           color: purple;
           font-weight: bold; }
           body .pjax-container main article h4:before {
             counter-increment: h4;
-            content: counter(h2) "." counter(h3) "." counter(h4) "."; }
+            content: counter(h2) "." counter(h3) "." counter(h4) ". "; }
         body .pjax-container main article .article-info {
           border-bottom: 1px solid #63ff6e;
           font-size: smaller;
