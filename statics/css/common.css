@@ -577,13 +577,13 @@ body {
           padding: 0;
           display: flex;
           flex-wrap: wrap;
-          justify-content: flex-start;
+          justify-content: space-around;
           list-style: none; }
           body .pjax-container aside .fixed-box ul.tag li {
             background-color: #990055;
             border-radius: 4px;
             padding: 0 5px;
-            margin: 6px 5px 0; }
+            margin: 6px 0; }
             body .pjax-container aside .fixed-box ul.tag li:hover {
               transition: .5s;
               transform: scale(1.15); }
