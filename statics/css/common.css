@@ -190,13 +190,13 @@ body {
             content: counter(h2) ". "; }
         body .pjax-container main article h3 {
           counter-reset: h4;
-          color: #639fff;
+          color: #e58e26;
           font-weight: bold; }
           body .pjax-container main article h3:before {
             counter-increment: h3;
             content: counter(h2) "." counter(h3) ". "; }
         body .pjax-container main article h4 {
-          color: purple;
+          color: #e58e26;
           font-weight: bold; }
           body .pjax-container main article h4:before {
             counter-increment: h4;
