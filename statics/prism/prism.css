@@ -78,9 +78,10 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
+	padding: .1em .4em;
 	border-radius: .3em;
 	white-space: normal;
+	background-color: rgba(50, 60, 125, 0.5);
 }
 
 .token.comment,
