@@ -18,6 +18,7 @@ body {
   padding: 0;
   font-size: 14px;
   color: white;
+  letter-spacing: .4px;
   font-family: "Source Sans Pro", "Hiragino Sans GB", "Microsoft Yahei", SimSun, Helvetica, Arial, monospace, Sans-serif;
   background-color: #222738; }
   body #stars {
@@ -116,13 +117,14 @@ body {
           body .pjax-container main article .scroll-x::-webkit-scrollbar-thumb {
             background-color: rgba(169, 169, 169, 0.5); }
         body .pjax-container main article ol {
-          color: yellowgreen; }
+          color: yellowgreen;
+          line-height: 2em; }
           body .pjax-container main article ol li > p:not(:first-child) {
             color: #00faf0; }
         body .pjax-container main article ul {
           list-style: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M439.456 989.86666663l-59.744-59.744L563.168 746.66666663l-183.456-183.456L439.456 503.46666663l243.2 243.2z" fill="tomato"></path></svg>');
           color: tomato;
-          line-height: 24px; }
+          line-height: 2em; }
           body .pjax-container main article ul li > p:not(:first-child) {
             color: #00faf0; }
         body .pjax-container main article a {
@@ -142,7 +144,8 @@ body {
             body .pjax-container main article table tr td, body .pjax-container main article table tr th, body .pjax-container main article table th td, body .pjax-container main article table th th {
               border: 2px grey solid;
               padding: 5px;
-              white-space: nowrap; }
+              white-space: nowrap;
+              font-size: .9em; }
           body .pjax-container main article table > tr:nth-child(even) {
             background-color: rgba(0, 56, 57, 0.25); }
           body .pjax-container main article table > tr:hover {
@@ -204,7 +207,7 @@ body {
           color: #63ff6e;
           opacity: 0.8; }
         body .pjax-container main article p {
-          line-height: 24px; }
+          line-height: 2em; }
           body .pjax-container main article p > code {
             padding: 0 5px;
             color: #d8ffb9;
@@ -212,7 +215,7 @@ body {
         body .pjax-container main article strong {
           color: #bc00bc;
           padding: 0 5px;
-          font-weight: lighter; }
+          font-weight: normal; }
       body .pjax-container main section {
         float: left;
         width: 100%;
