@@ -591,6 +591,39 @@ body .pjax-container .content-box .friend-links > section a:after {
   clear: both;
 }
 
+body .pjax-container .content-box .introduction {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 640px;
+}
+
+body .pjax-container .content-box .introduction > img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 50%;
+  border: 3px solid rgba(245, 245, 245, 0.5);
+}
+
+body .pjax-container .content-box .introduction * > table {
+  min-width: 100%;
+}
+
+body .pjax-container .content-box .introduction * > table tr {
+  vertical-align: top;
+}
+
+body .pjax-container .content-box .introduction * > table tr td {
+  line-height: 24px;
+  padding-top: 5px;
+}
+
+body .pjax-container .content-box .introduction * > table tr td:first-child {
+  width: 20%;
+}
+
 body .pjax-container .content-box:after {
   content: '';
   display: block;

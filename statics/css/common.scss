@@ -552,6 +552,40 @@ body {
                 }
             }
 
+            .introduction {
+                margin: 0 auto;
+                padding: 0 15px;
+                // background-color: aquamarine;
+                max-width: 640px;
+
+                > img {
+                    display: block;
+                    width: 160px;
+                    height: 160px;
+                    margin: 30px auto;
+                    padding: 10px;
+                    border-radius: 50%;
+                    border: 3px solid rgba(245, 245, 245, 0.5);
+                }
+
+                * > table {
+                    min-width: 100%;
+
+                    tr {
+                        vertical-align: top;
+
+                        td {
+                            line-height: 24px;
+                            padding-top: 5px;
+
+                            &:first-child {
+                                width: 20%;
+                            }
+                        }
+                    }
+                }
+            }
+
             &:after {
                 content: '';
                 display: block;
