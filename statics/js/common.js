@@ -10,7 +10,7 @@ $(function () {
         topbtn.style.transform = 'translateY(-120vh)';
         topbtn1.style.backgroundPositionX = '-897px';
         setTimeout(function () {
-            $("html,body").animate({scrollTop:"0"},500);
+            $("html,body").animate({ scrollTop: "0" }, 500);
             topbtn.style.transform = 'translateY(0)';
             topbtn1.style.backgroundPositionX = '-40px';
         }, 1000);
@@ -24,6 +24,35 @@ $(function () {
         } else {
             topbtn.style.display = 'none'
         }
+    });
+
+    //鼠标点击特效
+    var a_idx = 0;
+    $(document).ready(function ($) {
+        $("body").click(function (e) {
+            var a = new Array("GKD", "奥利给", "WDNMD", "114514", "FaQ", "u1s1", "鸡你太美", "lbwnb", "滑稽");
+            var $i = $("<span/>").text(a[a_idx]);
+            a_idx = (a_idx + 1) % a.length;
+            var x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index": 999999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "color": "#ff6651"
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+                1500,
+                function () {
+                    $i.remove();
+                });
+        });
     });
 });
 
@@ -86,7 +115,7 @@ function GenerateContentList() {
     $('a[href*="http"]').attr("target", "_blank");
 
     //删除文章h1,h2,h3里的a标签
-    var aTag = $('a[href*="#"]');
+    var aTag = $('a[href^="#"]');
     for (let i = 0; i < aTag.length; i++) {
         let text = aTag[i].innerHTML;
         text = text.replace('&lt;', '<');
@@ -116,7 +145,7 @@ function GenerateContentList() {
 }
 
 function GenerateToc() {
-//判断页面是否含有文章目录容器，如果有，则加载文章目录
+    //判断页面是否含有文章目录容器，如果有，则加载文章目录
     var toc = $("#toc");
     toc.empty();
     if (toc.length > 0) {
