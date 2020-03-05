@@ -29,6 +29,16 @@ body {
   background-color: #222738;
 }
 
+body:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 66px;
+  background-color: #222738;
+  position: fixed;
+  bottom: 0;
+}
+
 body #stars {
   width: 100%;
   height: 100%;
@@ -1211,6 +1221,7 @@ body #gitalk-container {
 
 /*返回顶部按钮*/
 .to-top-btn {
+  z-index: 100000;
   display: none;
   position: fixed;
   bottom: 0;
