@@ -736,7 +736,7 @@ body {
             top: 30px;
             right: -240px;
             width: 240px;
-            height: calc(100vh - 30px);
+            height: calc(100vh - 30px - 66px);
             //background-color: #990055;
             transition: 1s ease-in-out;
             overflow-x: hidden;
@@ -993,6 +993,10 @@ body {
 
                         &:nth-child(12) {
                             background-color: #3bbf3f
+                        }
+
+                        &:nth-child(13) {
+                            background-color: #ffa600
                         }
                     }
                 }

@@ -43,9 +43,9 @@ $(function () {
                 "left": x,
                 "font-size": "6px",
                 "font-weight": "bolder",
-                "color": "rgb(" + Math.random() * 255 + ","
-                    + Math.random() * 255 + "," 
-                    + Math.random() * 255 + ")"
+                "color": "rgb(" + (Math.random() * 255) + ","
+                    + (Math.random() * 255) + "," 
+                    + (Math.random() * 255) + ")"
             });
             $("body").append($i);
             $i.animate({

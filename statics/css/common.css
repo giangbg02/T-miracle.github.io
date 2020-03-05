@@ -767,7 +767,7 @@ body .pjax-container aside {
   top: 30px;
   right: -240px;
   width: 240px;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 30px - 66px);
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
   overflow-x: hidden;
@@ -1130,6 +1130,10 @@ body .pjax-container aside .fixed-box .tag a:nth-child(11) {
 
 body .pjax-container aside .fixed-box .tag a:nth-child(12) {
   background-color: #3bbf3f;
+}
+
+body .pjax-container aside .fixed-box .tag a:nth-child(13) {
+  background-color: #ffa600;
 }
 
 body .pjax-container aside.active {

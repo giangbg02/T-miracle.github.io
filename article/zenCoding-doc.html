@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Maokdown | 文章</title>
+        <base target="_self">
+        <link rel="icon" href="/statics/images/favicon.ico">
+        <link rel="stylesheet" href="/statics/css/common.css">
+        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+        <link rel="stylesheet" href="/statics/prism/prism.css">
+        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_1a3ivvdgudc.js"></script>
+    </head>
+    <body>
+        <canvas id="stars"></canvas>
+        <header>
+            <div class="website-name">MaokDown</div>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/navigation.html">导航</a></li>
+                    <li><a href="/links.html">友链</a></li>
+                    <li><a href="/about-me.html">关于我</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="pjax-container">
+            <main>
+                <article>
+                    <h1>zenCoding入门到精通：提高html编码速度</h1>
+                    <p class="article-info">该文章创建于2020-3-6，最后修改于2020-3-6</p>
+<h2>zenCoding是什么</h2>
+<p><strong>zenCoding</strong>是一款快速编写HTML,XML,XSL（或其他格式化语言）的编辑器插件，这个插件的实现了用缩写方式完成大量重复的书写工作。</p>
+<p>他的核心是一个强大的缩写引擎，掌握这些缩写技巧，给我们的编写代码带来极高的编写效率。</p>
+<p>现在主流的IDE（如：IntelliJ IDEA、VSCode、HBuilderX等）都默认支持了zenCoding，即使有一些编辑器（如：sublime Text、Notepad++等）不支持，也可以通过安装插件的方式，使其支持。</p>
+<h2>语法</h2>
+<h3>E：element，元素</h3>
+<p>例如：p、ul等标签元素</p>
+<p>缩写：</p>
+<pre><code class="text">p
+</code></pre>
+<p>在html中写入<strong>p</strong>，按下Tab键（vscode中为自动提示），结果为：</p>
+<pre><code class="html">&lt;p&gt;&lt;/p&gt;
+</code></pre>
+<h3>*：数量</h3>
+<p>缩写：</p>
+<pre><code class="text">a*3
+</code></pre>
+<p>结果为：</p>
+<pre><code class="html">&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+</code></pre>
+<h3>&gt;：后代</h3>
+<p>缩写：</p>
+<pre><code class="text">ul&gt;li
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3>+：兄弟</h3>
+<p>缩写：</p>
+<pre><code class="text">h1+h2+h3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;h1&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;/h3&gt;
+</code></pre>
+<h3>^：上级</h3>
+<p>缩写：</p>
+<pre><code class="text">div&gt;span^p
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+</code></pre>
+<p><strong>p</strong>元素会向上提升一级，与<strong>div</strong>持平，允许多个 <code>^</code> ：</p>
+<p>缩写：</p>
+<pre><code class="text">div&gt;p&gt;span^^bq
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+</code></pre>
+<h3>()：分组</h3>
+<p>缩写：</p>
+<pre><code class="text">div&gt;(p&gt;span)*3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>#：id属性</h3>
+<p>缩写：</p>
+<pre><code class="text">div#demo
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div id=&quot;demo&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3>.：class属性</h3>
+<p>缩写：</p>
+<pre><code class="text">div.demo
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div class=&quot;demo&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3>$：自增符号</h3>
+<p>缩写：</p>
+<pre><code class="text">.demo&gt;#box$*3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div class=&quot;demo&quot;&gt;
+    &lt;div id=&quot;box1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;box2&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;box3&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>允许同时使用多个 <code>$</code></p>
+</blockquote>
+<p>缩写：</p>
+<pre><code class="text">ul&gt;li.num$$$*3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;ul&gt;
+    &lt;li class=&quot;num001&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;num002&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;num003&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<blockquote>
+<p>可以使用 <code>@</code> 定义初始值</p>
+</blockquote>
+<p>缩写：</p>
+<pre><code class="text">ul&gt;li.num$@20*3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;ul&gt;
+    &lt;li class=&quot;num20&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;num21&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;num22&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3>[]：自定义符号</h3>
+<p>缩写：</p>
+<pre><code class="text">a[id=&#39;btn&#39; class=&#39;qwq&#39; href=&#39;github.com&#39;]
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;a href=&quot;github.com&quot; id=&quot;btn&quot; class=&quot;qwq&quot;&gt;&lt;/a&gt;
+</code></pre>
+<h3>{}：文本</h3>
+<p>缩写：</p>
+<pre><code class="text">p{text$}*3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;p&gt;text1&lt;/p&gt;
+&lt;p&gt;text2&lt;/p&gt;
+&lt;p&gt;text3&lt;/p&gt;
+</code></pre>
+<h3>:：引用</h3>
+<p>缩写：</p>
+<pre><code class="text">a:link
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;a href=&quot;http://&quot;&gt;&lt;/a&gt;
+</code></pre>
+<p>引用功能大多不常用，更多方式可自行探索。</p>
+<h3>隐式标签</h3>
+<blockquote>
+<p>E之前无关联元素，E默认为div</p>
+</blockquote>
+<p>缩写：</p>
+<pre><code class="text">.qqq#ppp
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div class=&quot;qqq&quot; id=&quot;ppp&quot;&gt;&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>E之前有关联元素，E默认匹配相应元素</p>
+</blockquote>
+<p>缩写：</p>
+<pre><code class="text">ul&gt;.idx$*3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;ul&gt;
+    &lt;li class=&quot;idx1&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;idx2&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;idx3&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>缩写：</p>
+<pre><code class="text">table&gt;.row*2&gt;.col*3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;table&gt;
+    &lt;tr class=&quot;row&quot;&gt;
+        &lt;td class=&quot;col&quot;&gt;&lt;/td&gt;
+        &lt;td class=&quot;col&quot;&gt;&lt;/td&gt;
+        &lt;td class=&quot;col&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;row&quot;&gt;
+        &lt;td class=&quot;col&quot;&gt;&lt;/td&gt;
+        &lt;td class=&quot;col&quot;&gt;&lt;/td&gt;
+        &lt;td class=&quot;col&quot;&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<blockquote>
+<p>感叹号</p>
+</blockquote>
+<p>缩写：</p>
+<pre><code class="text">!
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3>模拟文本</h3>
+<p>缩写：</p>
+<pre><code class="text">lorem
+</code></pre>
+<p>结果：</p>
+<pre><code class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, voluptate amet. At possimus porro molestiae tenetur dignissimos dolores minima nihil. Enim qui quo similique ratione fugiat assumenda vero aut at?
+</code></pre>
+<blockquote>
+<p>后面添加数字，代表生成单词的个数</p>
+</blockquote>
+<p>缩写：</p>
+<pre><code class="text">p&gt;lorem3
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;p&gt;Lorem, ipsum dolor.&lt;/p&gt;
+</code></pre>
+<h3>包装文本</h3>
+<p>vscode中写法如下（其他编辑器自行使用相应快捷键）：</p>
+<p>缩写：</p>
+<pre><code class="text">text1
+text2
+text3
+</code></pre>
+<p>选中文本，按下<code>ctrl+shift+p</code>打开命令窗口输入<strong>ewrap</strong></p>
+<p>选择Emmet：使用缩写包围个别行（Wrap Individual Lines with Abbreviation）选项</p>
+<p>输入: </p>
+<pre><code class="text">ul&gt;li*
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;ul&gt;
+    &lt;li&gt;text1&lt;/li&gt;
+    &lt;li&gt;text2&lt;/li&gt;
+    &lt;li&gt;text3&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3>复杂组合示例</h3>
+<p>缩写：</p>
+<pre><code class="text">.tx&gt;h1#txt+(span{text-$@16})*4
+</code></pre>
+<p>结果：</p>
+<pre><code class="html">&lt;div class=&quot;tx&quot;&gt;
+    &lt;h1 id=&quot;txt&quot;&gt;&lt;/h1&gt;
+    &lt;span&gt;text-16&lt;/span&gt;
+    &lt;span&gt;text-17&lt;/span&gt;
+    &lt;span&gt;text-18&lt;/span&gt;
+    &lt;span&gt;text-19&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<h2>官方手册</h2>
+<p><a href="https://docs.emmet.io/cheat-sheet/">点击前往</a></p>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
+        </div>
+        <div id="APlayer"></div>
+        <div class="to-top-btn">
+            <div class="to-top"></div>
+        </div>
+
+        <script src="/statics/JQuery/jquery.js"></script>
+        <script src="/statics/js/stars.js"></script>
+        <script src="/statics/Pjax/jquery.pjax.js"></script>
+        <script src="/statics/layer/layer.js"></script>
+        <script src="/statics/MD5/md5.min.js"></script>
+        <script src="/statics/gitalk/gitalk.min.js"></script>
+        <script src="/statics/prism/prism.js"></script>
+        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/statics/tocify/jquery.tocify.js"></script>
+        <script src="/statics/js/common.js"></script>
+        <script src="/statics/APlayer/APlayer.min.js"></script>
+        <script src="/statics/APlayer/APlayer-music-list.js"></script>
+    </body>
+</html>
