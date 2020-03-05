@@ -27,31 +27,33 @@ $(function () {
     });
 
     //鼠标点击特效
-    var a_idx = 0;
+    var idx = 0;
     $(document).ready(function ($) {
         $("body").click(function (e) {
             var a = new Array("GKD", "奥利给", "WDNMD", "114514", "FaQ", "u1s1", "鸡你太美", "lbwnb", "滑稽");
-            var $i = $("<span/>").text(a[a_idx]);
-            a_idx = (a_idx + 1) % a.length;
-            var x = e.pageX,
-                y = e.pageY;
+            var $i = $("<span>").text(a[idx]);
+            idx = (idx + 1) % a.length;
+            var x = e.clientX,
+                y = e.clientY;
             $i.css({
                 "z-index": 999999,
-                "top": y - 20,
+                "pointer-events": "none",
+                "position": "fixed",
+                "top": y - 6,
                 "left": x,
-                "position": "absolute",
-                "font-weight": "bold",
-                "color": "#ff6651"
+                "font-size": "6px",
+                "font-weight": "bolder",
+                "color": "rgb(" + Math.random() * 255 + ","
+                    + Math.random() * 255 + "," 
+                    + Math.random() * 255 + ")"
             });
             $("body").append($i);
             $i.animate({
                 "top": y - 180,
                 "opacity": 0
-            },
-                1500,
-                function () {
-                    $i.remove();
-                });
+            }, 1500, function () {
+                $i.remove();
+            });
         });
     });
 });

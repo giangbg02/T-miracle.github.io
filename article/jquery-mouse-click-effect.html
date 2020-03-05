@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Maokdown | 文章</title>
+    <base target="_self">
+    <link rel="icon" href="/statics/images/favicon.ico">
+    <link rel="stylesheet" href="/statics/css/common.css">
+    <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+    <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="/statics/prism/prism.css">
+    <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+    <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+    <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_1a3ivvdgudc.js"></script>
+</head>
+
+<body>
+    <canvas id="stars"></canvas>
+    <header>
+        <div class="website-name">MaokDown</div>
+        <nav>
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/navigation.html">导航</a></li>
+                <li><a href="/links.html">友链</a></li>
+                <li><a href="/about-me.html">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="pjax-container">
+        <main>
+            <article>
+                <h1>jQuery选择器的奇葩用法（一）：鼠标点击特效</h1>
+                <p class="article-info">该文章创建于2020-3-5，最后修改于2020-3-5</p>
+                <p>jQuery的选择器：$() 想必各位都用烂了</p>
+                <blockquote>
+                    <p>选择html元素： $(&#39;p&#39;) <br>
+                        选择id元素： $(&#39;#id&#39;) <br>
+                        选择class元素： $(&#39;.class&#39;)</p>
+                </blockquote>
+                <p>更复杂点：</p>
+                <blockquote>
+                    <p>组合选择： $(&#39;a[href^=&quot;#&quot;]&#39;)</p>
+                </blockquote>
+                <p>但是，就在最近我看到了一个“震撼我妈”的用法 <img src="/statics/images/Emoji/疑惑+1智商-N.jpg" alt="">：</p>
+                <pre><code class="javascript">$(&#39;&lt;span/&gt;&#39;).text(&#39;123&#39;);
+                </code></pre>
+                <p><img src="/statics/images/Emoji/黑人问号.png" alt=""> exm?这是什么鬼写法？选择器里还能直接写html标签的吗？</p>
+                <p>最后经过测试，发现这玩意居然可以凭空创造一个新标签...</p>
+                <p>下面是代码：</p>
+                <iframe height="265" style="width: 100%;" scrolling="no" title="mouse click"
+                    src="https://codepen.io/Tmiracle/embed/ZEGXyOY?height=265&theme-id=dark&default-tab=result"
+                    frameborder="no" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href='https://codepen.io/Tmiracle/pen/ZEGXyOY'>mouse click</a> by Tmiracle
+                    (<a href='https://codepen.io/Tmiracle'>@Tmiracle</a>) on <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+            </article>
+            <hr>
+            <div id="gitalk-container"></div>
+        </main>
+        <div class="aside-btn">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
+        <aside>
+            <div class="fixed-box toc">
+                <h3>目录</h3>
+                <div id="toc"></div>
+            </div>
+        </aside>
+    </div>
+    <div id="APlayer"></div>
+    <div class="to-top-btn">
+        <div class="to-top"></div>
+    </div>
+
+    <script src="/statics/JQuery/jquery.js"></script>
+    <script src="/statics/js/stars.js"></script>
+    <script src="/statics/Pjax/jquery.pjax.js"></script>
+    <script src="/statics/layer/layer.js"></script>
+    <script src="/statics/MD5/md5.min.js"></script>
+    <script src="/statics/gitalk/gitalk.min.js"></script>
+    <script src="/statics/prism/prism.js"></script>
+    <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="/statics/tocify/jquery.tocify.js"></script>
+    <script src="/statics/js/common.js"></script>
+    <script src="/statics/APlayer/APlayer.min.js"></script>
+    <script src="/statics/APlayer/APlayer-music-list.js"></script>
+</body>
+
+</html>
