@@ -5,7 +5,6 @@ $(function () {
     //返回顶部
     var topbtn = document.querySelector('.to-top-btn');
     var topbtn1 = document.querySelector('.to-top');
-
     topbtn.addEventListener('click', function () {
         topbtn.style.transform = 'translateY(-120vh)';
         topbtn1.style.backgroundPositionX = '-897px';
@@ -28,14 +27,18 @@ $(function () {
 
     //鼠标点击特效
     var idx = 0;
-    $(document).ready(function ($) {
+    $(document).ready(function () {
         $("body").click(function (e) {
-            var a = new Array("GKD", "奥利给", "WDNMD", "114514", "FaQ", "u1s1", "鸡你太美", "lbwnb", "滑稽");
-            var $i = $("<span>").text(a[idx]);
-            idx = (idx + 1) % a.length;
-            var x = e.clientX,
-                y = e.clientY;
-            $i.css({
+            var a = ["奥利给", "GKD", "wdnmd", "114514", "FaQ", "u1s1", "鸡你太美", "lbwnb", "awsl", "滑稽"];
+            var $i = $("<span>").text(a[idx]);      //创建一个标签元素
+            idx = Math.round(Math.random() * a.length);     //随机文本
+            var x = e.clientX,      //鼠标X轴坐标
+                y = e.clientY,      //鼠标Y轴坐标
+                //随机RGB颜色
+                r = Math.random() * 205 + 50,
+                g = Math.random() * 205 + 50,
+                b = Math.random() * 205 + 50;
+            $i.css({    //设置元素的样式
                 "z-index": 999999,
                 "pointer-events": "none",
                 "position": "fixed",
@@ -43,16 +46,14 @@ $(function () {
                 "left": x,
                 "font-size": "6px",
                 "font-weight": "bolder",
-                "color": "rgb(" + (Math.random() * 255) + ","
-                    + (Math.random() * 255) + "," 
-                    + (Math.random() * 255) + ")"
+                "color": "rgb(" + r + "," + g + "," + b + ")"
             });
-            $("body").append($i);
-            $i.animate({
+            $("body").append($i);       //添加到页面
+            $i.animate({        //元素动画
                 "top": y - 180,
                 "opacity": 0
             }, 1500, function () {
-                $i.remove();
+                $i.remove();        //移除元素
             });
         });
     });
