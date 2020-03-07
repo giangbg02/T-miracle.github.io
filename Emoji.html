@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>表情图片</title>
-    <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
     <style>
         body {
             background-color: rgb(39, 40, 34);
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-content: flex-start;
+            flex-wrap: wrap;
             min-height: calc(100vh - 42px);
         }
 
@@ -19,6 +19,8 @@
             position: relative;
             margin: 10px;
             transition: .5s;
+            width: auto;
+            height: 36px;
         }
 
         .img-box:hover>a {
@@ -45,35 +47,41 @@
 </head>
 
 <body>
-    <div class="img-box"><a></a><img src="/statics/images/Emoji/被揍.jpg" alt=""></div>
-    <div class="img-box"><a></a><img src="/statics/images/Emoji/黑人问号.png" alt=""></div>
-    <div class="img-box"><a></a><img src="/statics/images/Emoji/嘻嘻.jpg" alt=""></div>
-    <div class="img-box"><a></a><img src="/statics/images/Emoji/疑惑+1智商-N.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/chijiji.gif" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/beizou.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/biansha.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/daizhi.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/han.png" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/heirenwenhao.png" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/renzhen.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/shangdiao.gif" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/tuxue.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/wulianku.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/xixi.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/xmhan.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/yihuo+1zhishang-N.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/huajizhoumei.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/kuxiao.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/mengbi.gif" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/wuyu.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/yichang.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/zhoumei.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/zhshizengjia.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/wuguanniuqu.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/xmwuyu.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/keai.jpg" alt=""></div>
+    <div class="img-box"><a></a><img src="/statics/images/Emoji/jianyu.jpg" alt=""></div>
 
     <script src="/statics/JQuery/jquery.js"></script>
-    <script src="/statics/layer/layer.js"></script>
     <script>
         $('a').click((event) => {
             if (event.target.tagName == 'A') {
-                $(".gt-header-textarea ",
-                    parent.document).val("![](" + event.target.nextSibling.src + ")");
+                var _node = $(".gt-header-textarea ", parent.document)
+                _node.val(_node.val() + "![](" + event.target.nextSibling.src + ") ");
+                _node.focus();
                 parent.layer.closeAll()
             }
         })
-
-        //复制到剪切板
-        function cp(text) {
-            //没有input框，自己造一个，用完销毁
-            const input = document.createElement('input');
-            document.body.appendChild(input);
-            //存入数据
-            input.setAttribute('value', text);
-            input.select();
-            document.execCommand("Copy");
-            document.body.removeChild(input);
-            top.layer.msg("图片链接已复制~");
-
-        }
     </script>
 </body>
 
