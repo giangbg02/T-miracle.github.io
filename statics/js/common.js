@@ -114,6 +114,12 @@ function GenerateContentList() {
             })
     });
 
+    //文章图片弹层
+    layer.photos({
+        photos: 'article'
+        ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+      });
+
     //外链网址设置新标签打开
     $('a[href*="http"]').attr("target", "_blank");
 

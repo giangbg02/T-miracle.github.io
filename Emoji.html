@@ -76,10 +76,16 @@
     <script>
         $('a').click((event) => {
             if (event.target.tagName == 'A') {
-                var _node = $(".gt-header-textarea ", parent.document)
-                _node.val(_node.val() + "![](" + event.target.nextSibling.src + ") ");
+                var _node = $(".gt-header-textarea", parent.document)
+                _node.val(_node.val() + "![](" + event.target.nextSibling.src + ")");
                 _node.focus();
-                parent.layer.closeAll()
+                parent.layer.tips(
+                    '按下空格键使图片生效！！！',
+                    '.gt-header-textarea',
+                    { tips: [1, 'orangered'], time: 2500 }
+                );
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index)
             }
         })
     </script>
