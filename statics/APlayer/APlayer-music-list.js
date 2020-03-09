@@ -10,6 +10,13 @@ const ap = new APlayer({
     theme: 'grey',
     audio: [
         {
+            name: 'It\'s Raining Somewhere Else(Undertale Remix)',
+            artist: 'SharaX',
+            url: 'https://music.163.com/song/media/outer/url?id=410629805',
+            cover: 'http://p1.music.126.net/V4LtH3b6CKp2yqzflHNg9g==/109951163639659464.jpg',
+            lrc: '/statics/music/null.lrc',
+            theme: 'rgb(98, 153, 109)'
+        }, {
             name: 'ベースラインやってる?笑',
             artist: 'ななひら',
             url: 'https://music.163.com/song/media/outer/url?id=526904525',

@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Maokdown | 标签:JavaScript</title>
+        <title>Maokdown | 文章</title>
         <base target="_self">
         <meta name="description" content="Maokdown是Tmiracle的一个静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
-        <meta name="keywords" content="JavaScript,文章列表,Maokdown,maokdown,MaokDown,markdown,Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
+        <meta name="keywords" content="Maokdown,maokdown,MaokDown,markdown,Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
         <link rel="icon" href="/statics/images/favicon.ico">
         <link rel="stylesheet" href="/statics/css/common.css">
         <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
@@ -30,21 +30,35 @@
             </nav>
         </header>
         <div class="pjax-container">
-            <div class="content-box">
-                <div class="list-title">
-                    <h1>JavaScript</h1>
-                    <hr>
-                </div>
-                <ul>
-                    <li class="time">2020</li>
-                    <li><p><span>3-9</span><a href="/article/js-change-before-or-after-attribute.html">js更改伪元素before和after的属性值</a></p></li>
-                    <li><p><span>1-17</span><a href="/article/aplayer.html">APlayer网站音乐播放器</a></p></li>
-                    <li><p><span>1-15</span><a href="/article/pjax-doc.html">Pjax中文手册</a></p></li>
-                    <li class="time">2019</li>
-                    <li><p><span>12-26</span><a href="/article/static-page-add-views-number.html">怎么给静态博客添加统计访问点击量</a></p></li>
-                    <li><p><span>10-23</span><a href="/article/click-copy-url.html">点击a标签实现复制链接url</a></p></li>
-                </ul>
+            <main>
+                <article>
+                    <h1>js更改伪元素before和after的属性值</h1>
+                    <p class="article-info">该文章创建于2020-3-9，最后修改于2020-3-9</p>
+                    <pre><code class="javascript">document.styleSheets[0].addRule(&#39;.ele:before&#39;, &#39;width:100px&#39;)
+                    </code></pre>
+                    <p>经测试，在FireFox和Chrome中使用有效</p>
+                    <p>代码示例：</p>
+                    <iframe height="265" style="width: 100%;" scrolling="no" title="progress bar" src="https://codepen.io/Tmiracle/embed/gOpoLGP?height=265&theme-id=dark&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+                      See the Pen <a href='https://codepen.io/Tmiracle/pen/gOpoLGP'>progress bar</a> by Tmiracle
+                      (<a href='https://codepen.io/Tmiracle'>@Tmiracle</a>) on <a href='https://codepen.io'>CodePen</a>.
+                    </iframe>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
             </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
         </div>
         <div id="APlayer"></div>
         <div class="to-top-btn">
