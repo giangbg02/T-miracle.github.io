@@ -10,18 +10,18 @@ const ap = new APlayer({
     theme: 'grey',
     audio: [
         {
-            name: 'It\'s Raining Somewhere Else(Undertale Remix)',
-            artist: 'SharaX',
-            url: 'https://music.163.com/song/media/outer/url?id=410629805',
-            cover: 'http://p1.music.126.net/V4LtH3b6CKp2yqzflHNg9g==/109951163639659464.jpg',
-            lrc: '/statics/music/null.lrc',
-            theme: 'rgb(98, 153, 109)'
-        }, {
             name: 'ベースラインやってる?笑',
             artist: 'ななひら',
             url: 'https://music.163.com/song/media/outer/url?id=526904525',
             cover: 'http://p1.music.126.net/MtWOQCc_JLINjKgzZFoJXQ==/109951163098306222.jpg',
             lrc: '/statics/music/ベースラインやってる笑.lrc',
+            theme: 'rgb(98, 153, 109)'
+        }, {
+            name: 'It\'s Raining Somewhere Else',
+            artist: 'SharaX',
+            url: 'https://music.163.com/song/media/outer/url?id=410629805',
+            cover: 'http://p1.music.126.net/V4LtH3b6CKp2yqzflHNg9g==/109951163639659464.jpg',
+            lrc: '/statics/music/null.lrc',
             theme: 'rgb(98, 153, 109)'
         }, {
             name: 'Trouble Maker',
@@ -277,7 +277,7 @@ const ap = new APlayer({
             theme: '#1d3b17'
         }, {
             name: 'Dancin (Krono Remix)',
-            artist: 'Aaron Smith、Luvli、Krono',
+            artist: 'Aaron Smith...',
             url: 'https://music.163.com/song/media/outer/url?id=439121233',
             cover: 'http://p2.music.126.net/0VY_IeJo5ACPDhTWilamuw==/18610333812708197.jpg',
             lrc: '/statics/music/Dancin.lrc',
@@ -289,13 +289,6 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/zBSqcj15lxJ0vdoSAkh63Q==/109951164427560286.jpg',
             lrc: '/statics/music/大田後生仔.lrc',
             theme: '#7d8897'
-        }, {
-            name: '出山',
-            artist: '花粥、王胜娚',
-            url: 'https://music.163.com/song/media/outer/url?id=1313354324',
-            cover: 'http://p2.music.126.net/xUAfdMHdXhu3BmO4g8nOYA==/109951163573311341.jpg',
-            lrc: '/statics/music/出山.lrc',
-            theme: '#a7a7a7'
         }, {
             name: 'Wild Wild Web',
             artist: 'John The Whistler',
@@ -325,7 +318,7 @@ const ap = new APlayer({
             lrc: '/statics/music/null.lrc',
             theme: '#b3d79a'
         }, {
-            name: 'The Happy Troll (Griefing Theme Song)',
+            name: 'The Happy Troll',
             artist: 'D1ofaquavibe',
             url: 'https://music.163.com/song/media/outer/url?id=31365070',
             cover: 'http://p1.music.126.net/be1_ulzh8DAJeaRSiwffVA==/2918103860283419.jpg',
