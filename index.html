@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Maokdown | Tmiracle's Blog</title>
+        <title>Tmiracle的博客站点</title>
         <base target="_self">
-        <meta name="description" content="Maokdown是Tmiracle的一个静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
-        <meta name="keywords" content="Maokdown,maokdown,MaokDown,markdown,Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
+        <meta name="description" content="Tmiracle的静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
+        <meta name="keywords" content="Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
         <link rel="icon" href="/statics/images/favicon.ico">
         <link rel="stylesheet" href="/statics/css/common.css">
         <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
@@ -15,11 +15,17 @@
         <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
         <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
         <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_1a3ivvdgudc.js"></script>
+        <script>
+            var link = window.location.href;
+            if (link !== 'https://blog.texthub.cn/') {
+                confirm('该网址为镜像站点，是否前往主站点？') ? window.location.href = 'https://blog.texthub.cn/' : true;
+            }
+        </script>
     </head>
     <body>
         <canvas id="stars"></canvas>
         <header>
-            <div class="website-name">MaokDown</div>
+            <div class="website-name">Tmiracle</div>
             <nav>
                 <ul>
                     <li><a href="/">首页</a></li>
