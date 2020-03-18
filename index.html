@@ -1,131 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Tmiracle的博客站点</title>
-        <base target="_self">
-        <meta name="description" content="Tmiracle的静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
-        <meta name="keywords" content="Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
-        <link rel="icon" href="/statics/images/favicon.ico">
-        <link rel="stylesheet" href="/statics/css/common.css">
-        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
-        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
-        <link rel="stylesheet" href="/statics/prism/prism.css">
-        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
-        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
-        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_1a3ivvdgudc.js"></script>
-        <script>
-            var link = window.location.href;
-            if (link !== 'https://texthub.cn/') {
-                confirm('该网址为镜像站点，是否前往主站点？') ? window.location.href = 'https://texthub.cn/' : true;
-            }
-        </script>
-    </head>
-    <body>
-        <canvas id="stars"></canvas>
-        <header>
-            <div class="website-name">Tmiracle</div>
-            <nav>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tmiracle的博客站点</title>
+    <base target="_self">
+    <meta name="description" content="Tmiracle的静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
+    <meta name="keywords" content="Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
+    <link rel="icon" href="/statics/images/favicon.ico">
+    <link rel="stylesheet" href="/statics/css/common.css">
+    <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+    <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="/statics/prism/prism.css">
+    <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+    <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+    <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_1a3ivvdgudc.js"></script>
+    <script>
+        var link = window.location.href;
+        if (link !== 'https://texthub.cn/') {
+            confirm('该网址为镜像站点，是否前往主站点？') ? window.location.href = 'https://texthub.cn/' : true;
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="stars"></canvas>
+    <header>
+        <div class="website-name">Tmiracle</div>
+        <nav>
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/navigation.html">导航</a></li>
+                <li><a href="/links.html">友链</a></li>
+                <li><a href="/about-me.html">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="pjax-container">
+        <main>
+            <section>
+                <div>博客文章<a href="article-list.html">ALL >></a></div>
+                <hr>
                 <ul>
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/navigation.html">导航</a></li>
-                    <li><a href="/links.html">友链</a></li>
-                    <li><a href="/about-me.html">关于我</a></li>
+                    <li>
+                        <span>JavaScript</span>
+                        <a href="/article/js-change-before-or-after-attribute.html">js更改伪元素before和after的属性值</a></li>
+                    <li>
+                        <span>HTML</span>
+                        <a href="/article/zenCoding-doc.html">zenCoding入门到精通：提高html编码速度</a></li>
+                    <li>
+                        <span>jQuery</span>
+                        <a href="/article/jquery-mouse-click-effect.html">jQuery选择器的奇葩用法（一）：鼠标点击特效</a></li>
+                    <li>
+                        <span>IDEA</span>
+                        <a href="/article/IDEA-plugin.html">IDEA插件收集</a></li>
+                    <li>
+                        <span>CSS</span>
+                        <a href="/article/animation-timing-function-steps.html">CSS动画使用steps函数实现逐帧动画</a>
+                    </li>
+                    <li>
+                        <span>教程</span>
+                        <a href="/article/wyy-get-song-lrc-pic.html">获取网易云的歌曲、封面以及歌词</a></li>
+                    <li>
+                        <span>JavaScript</span>
+                        <a href="/article/aplayer.html">APlayer网站音乐播放器</a></li>
+                    <li>
+                        <span>JavaScript</span>
+                        <a href="/article/pjax-doc.html">Pjax中文手册</a></li>
+                    <li>
+                        <span>JavaScript</span>
+                        <a href="/article/static-page-add-views-number.html">怎么给静态博客添加统计访问点击量</a>
+                    </li>
+                    <li>
+                        <span>Spring</span>
+                        <a href="/article/ioc.html">IoC概念</a></li>
                 </ul>
-            </nav>
-        </header>
-        <div class="pjax-container">
-            <main>
-                <section>
-                    <div>博客文章<a href="article-list.html">ALL >></a></div>
-                    <hr>
-                    <ul>
-                        <li><span>JavaScript</span><a href="/article/js-change-before-or-after-attribute.html">js更改伪元素before和after的属性值</a></li>
-                        <li><span>HTML</span><a href="/article/zenCoding-doc.html">zenCoding入门到精通：提高html编码速度</a></li>
-                        <li><span>jQuery</span><a href="/article/jquery-mouse-click-effect.html">jQuery选择器的奇葩用法（一）：鼠标点击特效</a></li>
-                        <li><span>IDEA</span><a href="/article/IDEA-plugin.html">IDEA插件收集</a></li>
-                        <li><span>CSS</span><a href="/article/animation-timing-function-steps.html">CSS动画使用steps函数实现逐帧动画</a></li>
-                        <li><span>教程</span><a href="/article/wyy-get-song-lrc-pic.html">获取网易云的歌曲、封面以及歌词</a></li>
-                        <li><span>JavaScript</span><a href="/article/aplayer.html">APlayer网站音乐播放器</a></li>
-                        <li><span>JavaScript</span><a href="/article/pjax-doc.html">Pjax中文手册</a></li>
-                        <li><span>JavaScript</span><a href="/article/static-page-add-views-number.html">怎么给静态博客添加统计访问点击量</a></li>
-                        <li><span>Spring</span><a href="/article/ioc.html">IoC概念</a></li>
-                    </ul>
-                </section>
-                <section>
-                    <div>精选转载<a href="/chosen-reproduced.html">ALL >></a></div>
-                    <hr>
-                    <ul>
-                        <li>
-                            <a href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">
-                                CSS Grid 网格布局教程
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.runoob.com/w3cnote/viewport-deep-understanding.html">
-                                viewport 深入理解
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/convertSvg/svgtodataurl">
-                                探究 dataURI 中使用 SVG 正确姿势
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">
-                                Flex 布局教程：语法篇
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.zhangxinxu.com/wordpress/2014/06/understand-css-clear-left-right-and-use/">
-                                准确理解CSS clear:left/right的含义及实际用途
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </main>
-            <div class="aside-btn">
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-            </div>
-            <aside>
-                <div class="fixed-box">
-                    <div class="head-portrait">
-                        <div class="logo">
-                            <div class="square black">
-                                <div class="square">
-                                    <div class="square black">
-                                        <div class="square">
-                                            <div class="square black">
-                                                <div class="square">
-                                                    <div class="square black">
-                                                        <div class="square">
-                                                            <div class="square black">
-                                                                <div class="square">
-                                                                    <div class="square black">
-                                                                        <div class="square">
-                                                                            <div class="square black">
-                                                                                <div class="square">
-                                                                                    <div class="square black">
-                                                                                        <div class="square">
-                                                                                            <div class="square black">
-                                                                                                <div class="square">
-                                                                                                    <div class="square black">
-                                                                                                        <div class="square">
-                                                                                                            <div class="square black">
-                                                                                                                <div class="square">
-                                                                                                                    <div class="square black">
-                                                                                                                        <div class="square">
-                                                                                                                            <div class="square black">
-                                                                                                                                <div class="square">
-                                                                                                                                    <div class="square black">
-                                                                                                                                        <div class="square">
-                                                                                                                                            <div class="square black c">
-                                                                                                                                            </div>
+            </section>
+            <section>
+                <div>精选转载<a href="/chosen-reproduced.html">ALL >></a></div>
+                <hr>
+                <ul>
+                    <li>
+                        <a href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">
+                            CSS Grid 网格布局教程
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.runoob.com/w3cnote/viewport-deep-understanding.html">
+                            viewport 深入理解
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/convertSvg/svgtodataurl">
+                            探究 dataURI 中使用 SVG 正确姿势
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">
+                            Flex 布局教程：语法篇
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.zhangxinxu.com/wordpress/2014/06/understand-css-clear-left-right-and-use/">
+                            准确理解CSS clear:left/right的含义及实际用途
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <div class="aside-btn">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
+        <aside>
+            <div class="fixed-box">
+                <div class="head-portrait">
+                    <div class="logo">
+                        <div class="square black">
+                            <div class="square">
+                                <div class="square black">
+                                    <div class="square">
+                                        <div class="square black">
+                                            <div class="square">
+                                                <div class="square black">
+                                                    <div class="square">
+                                                        <div class="square black">
+                                                            <div class="square">
+                                                                <div class="square black">
+                                                                    <div class="square">
+                                                                        <div class="square black">
+                                                                            <div class="square">
+                                                                                <div class="square black">
+                                                                                    <div class="square">
+                                                                                        <div class="square black">
+                                                                                            <div class="square">
+                                                                                                <div
+                                                                                                    class="square black">
+                                                                                                    <div class="square">
+                                                                                                        <div
+                                                                                                            class="square black">
+                                                                                                            <div
+                                                                                                                class="square">
+                                                                                                                <div
+                                                                                                                    class="square black">
+                                                                                                                    <div
+                                                                                                                        class="square">
+                                                                                                                        <div
+                                                                                                                            class="square black">
+                                                                                                                            <div
+                                                                                                                                class="square">
+                                                                                                                                <div
+                                                                                                                                    class="square black">
+                                                                                                                                    <div
+                                                                                                                                        class="square">
+                                                                                                                                        <div
+                                                                                                                                            class="square black c">
                                                                                                                                         </div>
                                                                                                                                     </div>
                                                                                                                                 </div>
@@ -154,73 +187,75 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="img-box"><img src="/statics/images/icon/Tmiracle.png" alt></div>
                         </div>
-                    </div>
-                    <ul class="link">
-                        <li>
-                            <a href="https://github.com/T-miracle">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-Github"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://tmiracle.coding.net/user">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-coding"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.jianshu.com/u/3ad48efef1e7">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-jianshu"></use>
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://space.bilibili.com/14816067">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-bilibili"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tag">
-                        <a href="/tag/Spring.html">Spring</a>
-                        <a href="/tag/IDEA.html">IDEA</a>
-                        <a href="/tag/CSS.html">CSS</a></li>
-                        <a href="/tag/MySQL.html">MySQL</a>
-                        <a href="/tag/Git.html">Git</a>
-                        <a href="/tag/SpringBoot.html">Spring Boot</a>
-                        <a href="/tag/JavaScript.html">JavaScript</a>
-                        <a href="/tag/MyBatis.html">MyBatis</a>
-                        <a href="/tag/skills.html">教程</a>
-                        <a href="/tag/Maven.html">Maven</a>
-                        <a href="/tag/SVG.html">SVG</a>
-                        <a href="/tag/jQuery.html">jQuery</a>
-                        <a href="/tag/HTML.html">HTML</a>
+                        <div class="img-box"><img src="/statics/images/icon/Tmiracle.png" alt></div>
                     </div>
                 </div>
-            </aside>
-        </div>
-        <div id="APlayer"></div>
-        <div class="to-top-btn">
-            <div class="to-top"></div>
-        </div>
+                <ul class="link">
+                    <li>
+                        <a href="https://github.com/T-miracle">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-Github"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tmiracle.coding.net/user">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-coding"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://space.bilibili.com/14816067">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-bilibili"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://music.163.com/#/user/home?id=263985930">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-wangyiyun"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tag">
+                    <a href="/tag/Spring.html">Spring</a>
+                    <a href="/tag/IDEA.html">IDEA</a>
+                    <a href="/tag/CSS.html">CSS</a></li>
+                    <a href="/tag/MySQL.html">MySQL</a>
+                    <a href="/tag/Git.html">Git</a>
+                    <a href="/tag/SpringBoot.html">Spring Boot</a>
+                    <a href="/tag/JavaScript.html">JavaScript</a>
+                    <a href="/tag/MyBatis.html">MyBatis</a>
+                    <a href="/tag/skills.html">教程</a>
+                    <a href="/tag/Maven.html">Maven</a>
+                    <a href="/tag/SVG.html">SVG</a>
+                    <a href="/tag/jQuery.html">jQuery</a>
+                    <a href="/tag/HTML.html">HTML</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <div id="APlayer"></div>
+    <div class="to-top-btn">
+        <div class="to-top"></div>
+    </div>
 
-        <script src="/statics/JQuery/jquery.js"></script>
-        <script src="/statics/js/stars.js"></script>
-        <script src="/statics/Pjax/jquery.pjax.js"></script>
-        <script src="/statics/layer/layer.js"></script>
-        <script src="/statics/MD5/md5.min.js"></script>
-        <script src="/statics/gitalk/gitalk.min.js"></script>
-        <script src="/statics/prism/prism.js"></script>
-        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="/statics/tocify/jquery.tocify.js"></script>
-        <script src="/statics/js/common.js"></script>
-        <script src="/statics/APlayer/APlayer.min.js"></script>
-        <script src="/statics/APlayer/APlayer-music-list.js"></script>
-    </body>
+    <script src="/statics/JQuery/jquery.js"></script>
+    <script src="/statics/js/stars.js"></script>
+    <script src="/statics/Pjax/jquery.pjax.js"></script>
+    <script src="/statics/layer/layer.js"></script>
+    <script src="/statics/MD5/md5.min.js"></script>
+    <script src="/statics/gitalk/gitalk.min.js"></script>
+    <script src="/statics/prism/prism.js"></script>
+    <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="/statics/tocify/jquery.tocify.js"></script>
+    <script src="/statics/js/common.js"></script>
+    <script src="/statics/APlayer/APlayer.min.js"></script>
+    <script src="/statics/APlayer/APlayer-music-list.js"></script>
+</body>
+
 </html>
