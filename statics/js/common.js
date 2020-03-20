@@ -124,7 +124,7 @@ function GenerateContentList() {
     $('a[href*="http"]').attr("target", "_blank");
 
     //删除文章h1,h2,h3里的a标签
-    var aTag = $('a[href^="#"]');
+    var aTag = $('article a[href^="#"]');
     for (let i = 0; i < aTag.length; i++) {
         let text = aTag[i].innerHTML;
         text = text.replace('&lt;', '<');
@@ -134,11 +134,11 @@ function GenerateContentList() {
     }
 
     //给文章pre和code添加Prism对应的class
-    var preTag = $('pre');
+    var preTag = $('article pre');
     for (let i = 0; i < preTag.length; i++) {
         preTag[i].setAttribute("class", "line-numbers");
     }
-    var codeTag = $('code:not([class*=null])');
+    var codeTag = $('article code:not([class*=null])');
     for (let i = 0; i < codeTag.length; i++) {
         let className = codeTag[i].getAttribute("class");
         codeTag[i].setAttribute("class", "language-" + className);
@@ -166,5 +166,9 @@ function GenerateToc() {
             smoothScroll: true,
             history: false
         }).data("toc-tocify");
+    }
+    //判断是否生成目录，如果没有，添加提示
+    if (toc.html() === '') {
+        toc.html('<span style="padding-left:20px;color:#d1d8e0;font-size:.8em">暂无目录</span>')
     }
 }

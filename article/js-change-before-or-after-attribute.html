@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>文章</title>
-        <base target="_self">
-        <meta name="description" content="Tmiracle的静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
-        <meta name="keywords" content="Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
-        <link rel="icon" href="/statics/images/favicon.ico">
-        <link rel="stylesheet" href="/statics/css/common.css?v=1">
-        <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
-        <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
-        <link rel="stylesheet" href="/statics/prism/prism.css">
-        <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
-        <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
-        <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_1a3ivvdgudc.js"></script>
-    </head>
-    <body>
-        <canvas id="stars"></canvas>
-        <header>
-            <div class="website-name">Tmiracle</div>
-            <nav>
-                <ul>
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/navigation.html">导航</a></li>
-                    <li><a href="/links.html">友链</a></li>
-                    <li><a href="/about-me.html">关于我</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="pjax-container">
-            <main>
-                <article>
-                    <h1>js更改伪元素before和after的属性值</h1>
-                    <p class="article-info">该文章创建于2020-3-9，最后修改于2020-3-9</p>
-                    <pre><code class="javascript">document.styleSheets[0].addRule(&#39;.ele:before&#39;, &#39;width:100px&#39;)
-                    </code></pre>
-                    <p>经测试，在FireFox和Chrome中使用有效</p>
-                    <p>代码示例：</p>
-                    <iframe height="265" style="width: 100%;" scrolling="no" title="progress bar" src="https://codepen.io/Tmiracle/embed/gOpoLGP?height=265&theme-id=dark&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-                      See the Pen <a href='https://codepen.io/Tmiracle/pen/gOpoLGP'>progress bar</a> by Tmiracle
-                      (<a href='https://codepen.io/Tmiracle'>@Tmiracle</a>) on <a href='https://codepen.io'>CodePen</a>.
-                    </iframe>
-                </article>
-                <hr>
-                <div id="gitalk-container"></div>
-            </main>
-            <div class="aside-btn">
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-            </div>
-            <aside>
-                <div class="fixed-box toc">
-                    <h3>目录</h3>
-                    <div id="toc"></div>
-                </div>
-            </aside>
-        </div>
-        <div id="APlayer"></div>
-        <div class="to-top-btn">
-            <div class="to-top"></div>
-        </div>
 
-        <script src="/statics/JQuery/jquery.js"></script>
-        <script src="/statics/js/stars.js"></script>
-        <script src="/statics/Pjax/jquery.pjax.js"></script>
-        <script src="/statics/layer/layer.js"></script>
-        <script src="/statics/MD5/md5.min.js"></script>
-        <script src="/statics/gitalk/gitalk.min.js"></script>
-        <script src="/statics/prism/prism.js"></script>
-        <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="/statics/tocify/jquery.tocify.js"></script>
-        <script src="/statics/js/common.js?v=1"></script>
-        <script src="/statics/APlayer/APlayer.min.js"></script>
-        <script src="/statics/APlayer/APlayer-music-list.js?v=1"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>文章</title>
+    <base target="_self">
+    <meta name="description" content="Tmiracle的静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
+    <meta name="keywords" content="Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
+    <link rel="icon" href="/statics/images/favicon.ico">
+    <link rel="stylesheet" href="/statics/css/common.css?v=1">
+    <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
+    <link rel="stylesheet" href="/statics/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="/statics/prism/prism.css">
+    <link rel="stylesheet" href="/statics/tocify/jquery.tocify.css">
+    <link rel="stylesheet" href="/statics/gitalk/gitalk.css">
+    <script type="text/javascript" src="//at.alicdn.com/t/font_1618477_1a3ivvdgudc.js"></script>
+</head>
+
+<body>
+    <canvas id="stars"></canvas>
+    <header>
+        <div class="website-name">Tmiracle</div>
+        <nav>
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/navigation.html">导航</a></li>
+                <li><a href="/links.html">友链</a></li>
+                <li><a href="/about-me.html">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="pjax-container">
+        <main>
+            <article>
+                <h1>js更改伪元素before和after的属性值</h1>
+                <p class="article-info">该文章创建于2020-3-9，最后修改于2020-3-9</p>
+                <pre><code class="javascript">document.styleSheets[0].addRule(&#39;.ele:before&#39;, &#39;width:100px&#39;)
+                    </code></pre>
+                <p>经测试，在FireFox和Chrome中使用有效</p>
+                <p>代码示例：</p>
+                <iframe height="265" style="width: 100%;" scrolling="no" title="progress bar"
+                    src="https://codepen.io/Tmiracle/embed/gOpoLGP?height=265&theme-id=dark&default-tab=js,result"
+                    frameborder="no" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href='https://codepen.io/Tmiracle/pen/gOpoLGP'>progress bar</a> by Tmiracle
+                    (<a href='https://codepen.io/Tmiracle'>@Tmiracle</a>) on <a href='https://codepen.io'>CodePen</a>.
+                </iframe>
+            </article>
+            <hr>
+            <div id="gitalk-container"></div>
+        </main>
+        <div class="aside-btn">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
+        <aside>
+            <div class="fixed-box toc">
+                <h3>目录</h3>
+                <div id="toc"></div>
+            </div>
+        </aside>
+    </div>
+    <div id="APlayer"></div>
+    <div class="to-top-btn">
+        <div class="to-top"></div>
+    </div>
+
+    <script src="/statics/JQuery/jquery.js"></script>
+    <script src="/statics/js/stars.js"></script>
+    <script src="/statics/Pjax/jquery.pjax.js"></script>
+    <script src="/statics/layer/layer.js"></script>
+    <script src="/statics/MD5/md5.min.js"></script>
+    <script src="/statics/gitalk/gitalk.min.js"></script>
+    <script src="/statics/prism/prism.js"></script>
+    <script src="/statics/tocify/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="/statics/tocify/jquery.tocify.js"></script>
+    <script src="/statics/js/common.js?v=202003202243"></script>
+    <script src="/statics/APlayer/APlayer.min.js"></script>
+    <script src="/statics/APlayer/APlayer-music-list.js?v=1"></script>
+</body>
+
 </html>
