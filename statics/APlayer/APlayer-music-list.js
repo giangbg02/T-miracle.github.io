@@ -10,6 +10,27 @@ const ap = new APlayer({
     theme: 'grey',
     audio: [
         {
+            name: 'Revenge',
+            artist: 'Captainsparklez',
+            url: 'https://music.163.com/song/media/outer/url?id=1389794615',
+            cover: 'http://p2.music.126.net/FJjtSz4peDd8_ErrSo7ftA==/109951164352788627.jpg',
+            lrc: '/statics/music/Revenge.lrc',
+            theme: 'rgb(71, 126, 58)'
+        }, {
+            name: 'On My Way',
+            artist: 'AdMa、Alan Walker',
+            url: 'https://music.163.com/song/media/outer/url?id=1383107158',
+            cover: 'http://p1.music.126.net/ehueC-BNxxr3lr_IRxseVQ==/109951164278260419.jpg',
+            lrc: '/statics/music/On My Way.lrc',
+            theme: 'rgb(23, 59, 85)'
+        }, {
+            name: '植物大战僵尸',
+            artist: '三亩地',
+            url: 'https://music.163.com/song/media/outer/url?id=29836719',
+            cover: 'http://p1.music.126.net/CqVTMwL_QQd6BroOWOZNIg==/2531075769877805.jpg',
+            lrc: '/statics/music/null.lrc',
+            theme: 'rgb(183, 30, 9)'
+        }, {
             name: 'ベースラインやってる?笑',
             artist: 'ななひら',
             url: 'https://music.163.com/song/media/outer/url?id=526904525',
