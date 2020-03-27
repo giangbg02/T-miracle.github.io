@@ -34,7 +34,7 @@
     <div class="pjax-container">
         <main>
             <article>
-                <h1>jQuery选择器的奇葩用法（一）：鼠标点击特效</h1>
+                <h1>jQuery的冷门知识系列：新标签创建</h1>
                 <p class="article-info">该文章创建于2020-3-5，最后修改于2020-3-5</p>
                 <p>jQuery的选择器：$() 想必各位都用烂了</p>
                 <blockquote>
@@ -46,12 +46,11 @@
                 <blockquote>
                     <p>组合选择： $(&#39;a[href^=&quot;#&quot;]&#39;)</p>
                 </blockquote>
-                <p>但是，就在最近我看到了一个“震撼我妈”的用法 <img src="/statics/images/Emoji/yihuo+1zhishang-N.jpg" alt="">：</p>
+                <p>其实，jQuery还有个使用方式：</p>
                 <pre><code class="javascript">$(&#39;&lt;span/&gt;&#39;).text(&#39;123&#39;);
                 </code></pre>
-                <p><img src="/statics/images/Emoji/heirenwenhao.png" alt=""> exm?这是什么鬼写法？选择器里还能直接写html标签的吗？</p>
-                <p>最后经过测试，发现这玩意居然可以凭空创造一个新标签...</p>
-                <p>下面是代码：</p>
+                <p>这方法可以直接创造一个新标签</p>
+                <p>下面代码实例：</p>
                 <iframe height="265" style="width: 100%;" scrolling="no" title="mouse click"
                     src="https://codepen.io/Tmiracle/embed/ZEGXyOY?height=265&theme-id=dark&default-tab=js,result"
                     frameborder="no" allowtransparency="true" allowfullscreen="true">

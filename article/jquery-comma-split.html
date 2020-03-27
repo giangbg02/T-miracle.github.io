@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>标签:jQuery</title>
+        <title>文章</title>
         <base target="_self">
         <meta name="description" content="Tmiracle的静态博客网站，这里记录了编程学习遇到的问题，新接触的知识，以及实用的编程向导航。">
-        <meta name="keywords" content="jQuery,文章列表,Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
+        <meta name="keywords" content="Tmiracle,导航,Blog,博客,编程,教程,前端,后端">
         <link rel="icon" href="/statics/images/favicon.ico">
         <link rel="stylesheet" href="/statics/css/common.css?v=1">
         <link rel="stylesheet" href="/statics/APlayer/APlayer.min.css">
@@ -30,17 +30,36 @@
             </nav>
         </header>
         <div class="pjax-container">
-            <div class="content-box">
-                <div class="list-title">
-                    <h1>jQuery</h1>
-                    <hr>
-                </div>
-                <ul>
-                    <li class="time">2020</li>
-                    <li><p><span>3-27</span><a href="/article/jquery-comma-split.html">jQuery的冷门知识系列：选择器逗号分割问题</a></p></li>
-                    <li><p><span>3-5</span><a href="/article/jquery-create-tag.html">jQuery的冷门知识系列：新标签创建</a></p></li>
-                </ul>
+            <main>
+                <article>
+                    <h1>jQuery的冷门知识系列：选择器逗号分割问题</h1>
+                    <p class="article-info">该文章创建于2020-3-27，最后修改于2020-3-27</p>
+                    <h2>内部逗号</h2>
+                    <p>一般情况下使用的方式：</p>
+                    <pre><code class="javascript">$(&quot;h1, h2, h3&quot;)
+                    </code></pre>
+                    <p>表示：选择所有<code>h1</code>、<code>h2</code>和<code>h3</code>标签元素</p>
+                    <h2>外部逗号</h2>
+                    <pre><code class="javascript">$(&quot;span&quot;, &quot;p&quot;)
+                    </code></pre>
+                    <p>表示：选择所有<code>p</code>标签元素下的<code>span</code>元素</p>
+                </article>
+                <hr>
+                <div id="gitalk-container"></div>
+            </main>
+            <div class="aside-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
             </div>
+            <aside>
+                <div class="fixed-box toc">
+                    <h3>目录</h3>
+                    <div id="toc"></div>
+                </div>
+            </aside>
         </div>
         <div id="APlayer"></div>
         <div class="to-top-btn">
