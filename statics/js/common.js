@@ -2,6 +2,13 @@ $(function () {
     GenerateContentList();
     GenerateToc();
 
+    $('html').css('filter', 'grayscale(100%)')
+    top.layer.open({
+        title: false, 
+        type: 1,
+        content: '<span style="color:black">为此次疫情的烈士和逝者默哀&emsp;&emsp;<span>'
+    })
+
     //返回顶部
     var topbtn = document.querySelector('.to-top-btn');
     var topbtn1 = document.querySelector('.to-top');
