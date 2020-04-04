@@ -28,7 +28,7 @@ body {
   min-height: calc(100vh - 66px);
   letter-spacing: .4px;
   font-family: "Source Sans Pro", "Hiragino Sans GB", "Microsoft Yahei", SimSun, Helvetica, Arial, monospace, Sans-serif;
-  background-color: rgb(39, 39, 39);
+  background-color: #222738;
 }
 
 body:after {
