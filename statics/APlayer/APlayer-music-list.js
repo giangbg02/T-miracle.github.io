@@ -10,6 +10,13 @@ const ap = new APlayer({
     theme: 'grey',
     audio: [
         {
+            name: 'ベースラインやってる?笑',
+            artist: 'ななひら',
+            url: 'https://music.163.com/song/media/outer/url?id=526904525',
+            cover: 'http://p1.music.126.net/MtWOQCc_JLINjKgzZFoJXQ==/109951163098306222.jpg',
+            lrc: '/statics/music/ベースラインやってる笑.lrc',
+            theme: 'rgb(98, 153, 109)'
+        }, {
             name: 'Revenge',
             artist: 'Captainsparklez',
             url: 'https://music.163.com/song/media/outer/url?id=1389794615',
@@ -30,13 +37,6 @@ const ap = new APlayer({
             cover: 'http://p1.music.126.net/CqVTMwL_QQd6BroOWOZNIg==/2531075769877805.jpg',
             lrc: '/statics/music/null.lrc',
             theme: 'rgb(183, 30, 9)'
-        }, {
-            name: 'ベースラインやってる?笑',
-            artist: 'ななひら',
-            url: 'https://music.163.com/song/media/outer/url?id=526904525',
-            cover: 'http://p1.music.126.net/MtWOQCc_JLINjKgzZFoJXQ==/109951163098306222.jpg',
-            lrc: '/statics/music/ベースラインやってる笑.lrc',
-            theme: 'rgb(98, 153, 109)'
         }, {
             name: 'It\'s Raining Somewhere Else',
             artist: 'SharaX',
